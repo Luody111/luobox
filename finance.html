@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>金融理财 - luobox</title>
+
+<!-- SEO Meta -->
+<meta name="description" content="luobox 金融理财分类导航，收录52个精选金融理财，包括股票 · 基金 · 银行 · 保险。一键直达常用网站。">
+<meta name="keywords" content="luobox,金融理财,网址导航,股票 · 基金 · 银行 · 保险">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://luobox.example.com/finance.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="金融理财 - luobox 导航">
+<meta property="og:description" content="金融理财分类收录52个精选网站，一键直达。">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M2 16c2-4 4-6 7-6s3 4 6 4 5-2 7-4c0 6-4 12-10 12S5 20 2 16z' fill='white'/></svg>">
+
+<style>
+/* ========== CSS Reset & Variables ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --bg-white: #FFFFFF;
+  --bg-search: #F0F4F8;
+  --bg-subtle: #F8FAFC;
+  --cat-color: #F59E0B;
+  --page-width: 1200px;
+  --content-padding: 48px;
+}
+
+body {
+  font-family: 'Sarasa Gothic SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ========== Header ========== */
+.header {
+  width: 100%;
+  height: 64px;
+  background: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--content-padding);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 28px; height: 28px;
+  background: var(--primary);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-icon svg { width: 14px; height: 14px; }
+
+.logo-text {
+  font-size: 17px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.3px;
+}
+
+.header-search {
+  width: 400px; height: 40px;
+  background: var(--bg-search);
+  border-radius: 20px;
+  display: flex; align-items: center;
+  padding: 0 14px; gap: 8px;
+  border: 1.5px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.header-search:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+}
+.header-search input {
+  flex: 1; border: none; outline: none;
+  font-size: 13px; font-family: inherit; color: var(--text-primary); background: transparent;
+}
+.header-search input::placeholder { color: #94A3B8; }
+.search-icon-btn {
+  width: 26px; height: 26px; border: none; background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; border-radius: 50%;
+  color: #94A3B8; padding: 0; transition: background 0.15s;
+}
+.search-icon-btn:hover { background: rgba(37,99,235,0.06); color: var(--primary); }
+
+.breadcrumb {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-secondary);
+}
+.breadcrumb a { text-decoration: none; color: var(--primary); }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #CBD5E1; }
+
+/* ========== Category Hero ========== */
+.cat-hero {
+  background: linear-gradient(135deg, #F59E0B 0%, #F59E0Bdd 100%);
+  padding: 56px var(--content-padding) 44px;
+  color: white;
+  position: relative; overflow: hidden;
+}
+.cat-hero::before {
+  content: '';
+  position: absolute; top: -40%; right: -15%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.cat-hero-inner { position: relative; z-index: 1; max-width: var(--page-width); margin: 0 auto; }
+.cat-icon-large {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.cat-hero h1 {
+  font-size: 32px; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px;
+}
+.cat-hero .cat-subtitle {
+  font-size: 16px; opacity: 0.9; font-weight: 400;
+}
+.cat-stats {
+  display: flex; gap: 32px; margin-top: 24px;
+}
+.stat-item .num { font-size: 28px; font-weight: 800; }
+.stat-item .label { font-size: 13px; opacity: 0.8; margin-top: 2px; }
+
+/* ========== Filter Bar ========== */
+.filter-bar {
+  max-width: var(--page-width); margin: -24px auto 0;
+  background: var(--bg-white); border-radius: 12px;
+  padding: 14px 24px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  position: relative; z-index: 2;
+}
+.filter-bar .search-input {
+  flex: 1; height: 38px;
+  border: 1.5px solid #E2E8F0; border-radius: 10px;
+  padding: 0 14px; font-size: 14px;
+  transition: border-color 0.2s; outline: none;
+  font-family: inherit; color: var(--text-primary);
+}
+.filter-bar .search-input:focus { border-color: var(--cat-color); }
+.filter-bar .search-input::placeholder { color: #94A3B8; }
+.count-badge {
+  font-size: 13px; color: var(--text-secondary); white-space: nowrap;
+}
+.count-badge strong { color: var(--cat-color); font-weight: 700; }
+
+/* ========== Content ========== */
+.content-area {
+  max-width: var(--page-width); margin: 0 auto;
+  padding: 32px var(--content-padding) 64px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+
+.site-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 18px;
+  background: var(--bg-white);
+  border: 1.5px solid rgba(148,163,184,0.12);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  cursor: pointer;
+}
+.site-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--cat-color);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.brand-color {
+  width: 42px; height: 42px;
+  min-width: 42px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.site-info {
+  display: flex; flex-direction: column; gap: 3px;
+  overflow: hidden; min-width: 0;
+}
+.site-name {
+  font-size: 15px; font-weight: 600; color: var(--text-primary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.site-desc {
+  font-size: 12.5px; font-weight: 400; color: var(--text-secondary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: #F8FAFC;
+  border-top: 1px solid rgba(148,163,184,0.12);
+  padding: 32px var(--content-padding);
+  text-align: center;
+}
+.footer-links {
+  display: flex; justify-content: center; gap: 24px; margin-bottom: 16px;
+}
+.footer-links a {
+  font-size: 13px; color: var(--text-secondary); text-decoration: none;
+}
+.footer-links a:hover { color: var(--primary); }
+.footer-copy {
+  font-size: 12px; color: #94A3B8;
+}
+
+/* ========== No-results message ========== */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center; padding: 48px 0;
+  color: var(--text-secondary); font-size: 15px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .header { padding: 0 16px; }
+  .content-area { padding: 24px 16px 48px; }
+  .cat-hero { padding: 40px 16px 32px; }
+  .cat-hero h1 { font-size: 26px; }
+  .filter-bar { padding: 10px 16px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header">
+  <a href="index.html" class="logo-area">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12C4 8 6 6 9 6C12 6 12 10 15 10C18 10 20 8 22 6C22 12 18 18 12 18C8 18 5 16 2 12Z" fill="white"/>
+        <path d="M2 16C4 14 6 13 9 13C12 13 12 16 15 16C18 16 20 14 22 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="logo-text">luobox</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:20px;">
+    <nav class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="sep">/</span>
+      <span>金融理财</span>
+    </nav>
+    <div class="header-search">
+      <input type="text" placeholder="搜索此分类..." id="headerSearchInput" autocomplete="off">
+      <button class="search-icon-btn" onclick="doHeaderSearch()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2"/><path d="M15 15L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Category Hero ===== -->
+<section class="cat-hero">
+  <div class="cat-hero-inner">
+    <div class="cat-icon-large">
+      <!-- Category-specific icon placeholder -->
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="18" rx="4" stroke="white" stroke-width="2"/>
+        <path d="M8 8h8M8 12h8M8 16h5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1>金融理财</h1>
+    <p class="cat-subtitle">股票 · 基金 · 银行 · 保险</p>
+    <div class="cat-stats">
+      <div class="stat-item">
+        <div class="num">52</div>
+        <div class="label">收录网站</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">TOP 5</div>
+        <div class="label">首页推荐</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">实时</div>
+        <div class="label">持续更新</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Filter Bar ===== -->
+<div class="filter-bar">
+  <input type="text" class="search-input" placeholder="在 金融理财 中搜索..." id="filterInput" autocomplete="off">
+  <span class="count-badge">共 <strong id="visibleCount">52</strong> 个网站</span>
+</div>
+
+<!-- ===== Content Area ===== -->
+<main class="content-area">
+  <div class="card-grid" id="cardGrid">
+      <a class="site-card" href="https://www.eastmoney.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">东方财富</span><span class="site-desc">财经股票门户</span></div>
+      </a>
+      <a class="site-card" href="https://www.10jqka.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">同花顺</span><span class="site-desc">投资理财平台</span></div>
+      </a>
+      <a class="site-card" href="https://xueqiu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E88E5;"></div>
+        <div class="site-info"><span class="site-name">雪球</span><span class="site-desc">投资者交流社区</span></div>
+      </a>
+      <a class="site-card" href="https://fund.eastmoney.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">天天基金</span><span class="site-desc">基金交易平台</span></div>
+      </a>
+      <a class="site-card" href="https://fund.alibaba.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1677FF;"></div>
+        <div class="site-info"><span class="site-name">蚂蚁财富</span><span class="site-desc">蚂蚁金服理财平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.futunn.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1677FF;"></div>
+        <div class="site-info"><span class="site-name">富途牛牛</span><span class="site-desc">港美股投资交易</span></div>
+      </a>
+      <a class="site-card" href="https://www.itiger.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6B00;"></div>
+        <div class="site-info"><span class="site-name">老虎证券</span><span class="site-desc">全球投资交易平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.longbridgeapp.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1890FF;"></div>
+        <div class="site-info"><span class="site-name">长桥证券</span><span class="site-desc">新一代港美股券商</span></div>
+      </a>
+      <a class="site-card" href="https://www.hstong.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">华盛通</span><span class="site-desc">华盛证券交易APP</span></div>
+      </a>
+      <a class="site-card" href="https://www.eddid.com.hk" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E65100;"></div>
+        <div class="site-info"><span class="site-name">艾德一站通</span><span class="site-desc">艾德证券期货</span></div>
+      </a>
+      <a class="site-card" href="https://finance.sina.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">新浪财经</span><span class="site-desc">新浪财经频道</span></div>
+      </a>
+      <a class="site-card" href="https://business.sohu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">搜狐财经</span><span class="site-desc">搜狐财经频道</span></div>
+      </a>
+      <a class="site-card" href="https://money.163.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #C62828;"></div>
+        <div class="site-info"><span class="site-name">网易财经</span><span class="site-desc">网易财经频道</span></div>
+      </a>
+      <a class="site-card" href="https://finance.qq.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E88E5;"></div>
+        <div class="site-info"><span class="site-name">腾讯财经</span><span class="site-desc">腾讯财经频道</span></div>
+      </a>
+      <a class="site-card" href="https://www.jrj.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">金融界</span><span class="site-desc">财经证券资讯</span></div>
+      </a>
+      <a class="site-card" href="https://www.hexun.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">和讯网</span><span class="site-desc">财经金融信息平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.yicai.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E65100;"></div>
+        <div class="site-info"><span class="site-name">第一财经</span><span class="site-desc">专业财经媒体</span></div>
+      </a>
+      <a class="site-card" href="https://www.caixin.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #0D47A1;"></div>
+        <div class="site-info"><span class="site-name">财新网</span><span class="site-desc">财经新闻专业媒体</span></div>
+      </a>
+      <a class="site-card" href="https://wallstreetcn.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #212121;"></div>
+        <div class="site-info"><span class="site-name">华尔街见闻</span><span class="site-desc">全球财经即时通讯</span></div>
+      </a>
+      <a class="site-card" href="https://www.gelonghui.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E88E5;"></div>
+        <div class="site-info"><span class="site-name">格隆汇</span><span class="site-desc">海外投资研究平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.zhitongcaijing.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">智通财经</span><span class="site-desc">港股资讯服务平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.chnfund.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">中国基金报</span><span class="site-desc">基金行业权威媒体</span></div>
+      </a>
+      <a class="site-card" href="https://www.simuwang.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1565C0;"></div>
+        <div class="site-info"><span class="site-name">私募排排网</span><span class="site-desc">私募基金数据平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.fundhowbuy.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">好买基金</span><span class="site-desc">第三方基金销售平台</span></div>
+      </a>
+      <a class="site-card" href="https://danjuanfunds.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E88E5;"></div>
+        <div class="site-info"><span class="site-name">蛋卷基金</span><span class="site-desc">雪球旗下基金平台</span></div>
+      </a>
+      <a class="site-card" href="https://qieman.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6B00;"></div>
+        <div class="site-info"><span class="site-name">且慢</span><span class="site-desc">基金组合跟投平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.pufund.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E88E5;"></div>
+        <div class="site-info"><span class="site-name">普益基金</span><span class="site-desc">智能投顾理财平台</span></div>
+      </a>
+      <a class="site-card" href="https://jr.jd.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E4393C;"></div>
+        <div class="site-info"><span class="site-name">京东金融</span><span class="site-desc">京东数字科技平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.duxiaoman.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #2932E1;"></div>
+        <div class="site-info"><span class="site-name">度小满金融</span><span class="site-desc">百度旗下金融科技</span></div>
+      </a>
+      <a class="site-card" href="https://www.360jieju.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #21A3DD;"></div>
+        <div class="site-info"><span class="site-name">360借条</span><span class="site-desc">360信用借款服务</span></div>
+      </a>
+      <a class="site-card" href="https://weilidai.qq.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #07C160;"></div>
+        <div class="site-info"><span class="site-name">微粒贷</span><span class="site-desc">微信小额贷款服务</span></div>
+      </a>
+      <a class="site-card" href="https://jiebei.alipay.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1677FF;"></div>
+        <div class="site-info"><span class="site-name">借呗</span><span class="site-desc">支付宝消费信贷</span></div>
+      </a>
+      <a class="site-card" href="https://huabei.alipay.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1677FF;"></div>
+        <div class="site-info"><span class="site-name">花呗</span><span class="site-desc">蚂蚁消费信贷产品</span></div>
+      </a>
+      <a class="site-card" href="https://www.cmbchina.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">招商银行</span><span class="site-desc">零售银行领先者</span></div>
+      </a>
+      <a class="site-card" href="https://www.icbc.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #C62828;"></div>
+        <div class="site-info"><span class="site-name">工商银行</span><span class="site-desc">中国最大商业银行</span></div>
+      </a>
+      <a class="site-card" href="https://www.ccb.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #0066B3;"></div>
+        <div class="site-info"><span class="site-name">建设银行</span><span class="site-desc">国有大型商业银行</span></div>
+      </a>
+      <a class="site-card" href="https://www.boc.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #BF360C;"></div>
+        <div class="site-info"><span class="site-name">中国银行</span><span class="site-desc">国际化程度最高银行</span></div>
+      </a>
+      <a class="site-card" href="https://www.abchina.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #009E40;"></div>
+        <div class="site-info"><span class="site-name">农业银行</span><span class="site-desc">四大行之一</span></div>
+      </a>
+      <a class="site-card" href="https://www.bankcomm.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #002C5F;"></div>
+        <div class="site-info"><span class="site-name">交通银行</span><span class="site-desc">国有股份制银行</span></div>
+      </a>
+      <a class="site-card" href="https://bank.pingan.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">平安银行</span><span class="site-desc">综合金融服务集团</span></div>
+      </a>
+      <a class="site-card" href="https://www.spdb.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E3A6E;"></div>
+        <div class="site-info"><span class="site-name">浦发银行</span><span class="site-desc">全国性股份制银行</span></div>
+      </a>
+      <a class="site-card" href="https://www.cib.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #004098;"></div>
+        <div class="site-info"><span class="site-name">兴业银行</span><span class="site-desc">绿色金融先行者</span></div>
+      </a>
+      <a class="site-card" href="https://webank.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E88E5;"></div>
+        <div class="site-info"><span class="site-name">微众银行</span><span class="site-desc">首家互联网银行</span></div>
+      </a>
+      <a class="site-card" href="https://www.mybank.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6A00;"></div>
+        <div class="site-info"><span class="site-name">网商银行</span><span class="site-desc">蚂蚁集团旗下银行</span></div>
+      </a>
+      <a class="site-card" href="https://www.zhongan.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">众安保险</span><span class="site-desc">互联网保险公司</span></div>
+      </a>
+      <a class="site-card" href="https://www.shuidichou.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E88E5;"></div>
+        <div class="site-info"><span class="site-name">水滴筹</span><span class="site-desc">大病筹款平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.qschou.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6B00;"></div>
+        <div class="site-info"><span class="site-name">轻松筹</span><span class="site-desc">大病互助众筹平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.qcc.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #2962FF;"></div>
+        <div class="site-info"><span class="site-name">企查查</span><span class="site-desc">企业信息查询平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.tianyancha.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #2F54EB;"></div>
+        <div class="site-info"><span class="site-name">天眼查</span><span class="site-desc">商业查询平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.qixin.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E88E5;"></div>
+        <div class="site-info"><span class="site-name">启信宝</span><span class="site-desc">企业征信查询工具</span></div>
+      </a>
+      <a class="site-card" href="https://www.wind.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">Wind万得</span><span class="site-desc">金融数据终端</span></div>
+      </a>
+      <a class="site-card" href="https://choice.eastmoney.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">Choice金融终端</span><span class="site-desc">东方财富数据终端</span></div>
+      </a>
+
+  </div>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="index.html">返回首页</a>
+    <a href="finance.html">刷新列表</a>
+  </div>
+  <div class="footer-copy">2026 luobox · 收录互联网精彩站点</div>
+</footer>
+
+<script>
+// ===== Search Engine Config =====
+const SEARCH_ENGINES = {
+  baidu: { name: '百度', url: 'https://www.baidu.com/s?wd=', icon: '🔍' },
+  google: { name: 'Google', url: 'https://www.google.com/search?q=', icon: '🌐' },
+  bing: { name: 'Bing', url: 'https://www.bing.com/search?q=', icon: '🔎' }
+};
+let currentEngine = 'baidu';
+
+function doHeaderSearch() {
+  const q = document.getElementById('headerSearchInput').value.trim();
+  if (!q) return;
+  window.open(SEARCH_ENGINES[currentEngine].url + encodeURIComponent(q), '_blank');
+}
+
+document.getElementById('headerSearchInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doHeaderSearch();
+});
+
+// ===== In-page Filter Search =====
+const filterInput = document.getElementById('filterInput');
+const cardGrid = document.getElementById('cardGrid');
+const allCards = Array.from(cardGrid.querySelectorAll('.site-card'));
+const countBadge = document.getElementById('visibleCount');
+
+filterInput.addEventListener('input', () => {
+  const keyword = filterInput.value.trim().toLowerCase();
+  let visible = 0;
+
+  allCards.forEach(card => {
+    const name = card.querySelector('.site-name')?.textContent.toLowerCase() || '';
+    const desc = card.querySelector('.site-desc')?.textContent.toLowerCase() || '';
+
+    if (!keyword || name.includes(keyword) || desc.includes(keyword)) {
+      card.style.display = '';
+      visible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  countBadge.textContent = visible;
+
+  // Show no results message
+  let noResults = document.querySelector('.no-results');
+  if (visible === 0 && !noResults) {
+    const div = document.createElement('div');
+    div.className = 'no-results';
+    div.textContent = '没有找到匹配的网站，换个关键词试试';
+    cardGrid.appendChild(div);
+  } else if (visible > 0 && noResults) {
+    noResults.remove();
+  }
+});
+</script>
+
+</body>
+</html>
