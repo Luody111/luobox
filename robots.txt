@@ -1,0 +1,9 @@
+# luobox - robots.txt
+# 告诉搜索引擎爬虫哪些页面可以抓取
+
+User-agent: *
+Allow: /
+Disallow: /assets/
+
+# 站点地图位置（部署后替换为实际 URL）
+Sitemap: https://luobox.example.com/sitemap.xml
