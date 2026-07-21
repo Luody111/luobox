@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识网站 - luobox</title>
+
+<!-- SEO Meta -->
+<meta name="description" content="luobox 知识网站分类导航，收录52个精选知识网站，包括学术 · 教育 · 编程 · 科普。一键直达常用网站。">
+<meta name="keywords" content="luobox,知识网站,网址导航,学术 · 教育 · 编程 · 科普">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://luobox.example.com/knowledge.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="知识网站 - luobox 导航">
+<meta property="og:description" content="知识网站分类收录52个精选网站，一键直达。">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M2 16c2-4 4-6 7-6s3 4 6 4 5-2 7-4c0 6-4 12-10 12S5 20 2 16z' fill='white'/></svg>">
+
+<style>
+/* ========== CSS Reset & Variables ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --bg-white: #FFFFFF;
+  --bg-search: #F0F4F8;
+  --bg-subtle: #F8FAFC;
+  --cat-color: #10B981;
+  --page-width: 1200px;
+  --content-padding: 48px;
+}
+
+body {
+  font-family: 'Sarasa Gothic SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ========== Header ========== */
+.header {
+  width: 100%;
+  height: 64px;
+  background: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--content-padding);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 28px; height: 28px;
+  background: var(--primary);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-icon svg { width: 14px; height: 14px; }
+
+.logo-text {
+  font-size: 17px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.3px;
+}
+
+.header-search {
+  width: 400px; height: 40px;
+  background: var(--bg-search);
+  border-radius: 20px;
+  display: flex; align-items: center;
+  padding: 0 14px; gap: 8px;
+  border: 1.5px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.header-search:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+}
+.header-search input {
+  flex: 1; border: none; outline: none;
+  font-size: 13px; font-family: inherit; color: var(--text-primary); background: transparent;
+}
+.header-search input::placeholder { color: #94A3B8; }
+.search-icon-btn {
+  width: 26px; height: 26px; border: none; background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; border-radius: 50%;
+  color: #94A3B8; padding: 0; transition: background 0.15s;
+}
+.search-icon-btn:hover { background: rgba(37,99,235,0.06); color: var(--primary); }
+
+.breadcrumb {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-secondary);
+}
+.breadcrumb a { text-decoration: none; color: var(--primary); }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #CBD5E1; }
+
+/* ========== Category Hero ========== */
+.cat-hero {
+  background: linear-gradient(135deg, #10B981 0%, #10B981dd 100%);
+  padding: 56px var(--content-padding) 44px;
+  color: white;
+  position: relative; overflow: hidden;
+}
+.cat-hero::before {
+  content: '';
+  position: absolute; top: -40%; right: -15%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.cat-hero-inner { position: relative; z-index: 1; max-width: var(--page-width); margin: 0 auto; }
+.cat-icon-large {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.cat-hero h1 {
+  font-size: 32px; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px;
+}
+.cat-hero .cat-subtitle {
+  font-size: 16px; opacity: 0.9; font-weight: 400;
+}
+.cat-stats {
+  display: flex; gap: 32px; margin-top: 24px;
+}
+.stat-item .num { font-size: 28px; font-weight: 800; }
+.stat-item .label { font-size: 13px; opacity: 0.8; margin-top: 2px; }
+
+/* ========== Filter Bar ========== */
+.filter-bar {
+  max-width: var(--page-width); margin: -24px auto 0;
+  background: var(--bg-white); border-radius: 12px;
+  padding: 14px 24px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  position: relative; z-index: 2;
+}
+.filter-bar .search-input {
+  flex: 1; height: 38px;
+  border: 1.5px solid #E2E8F0; border-radius: 10px;
+  padding: 0 14px; font-size: 14px;
+  transition: border-color 0.2s; outline: none;
+  font-family: inherit; color: var(--text-primary);
+}
+.filter-bar .search-input:focus { border-color: var(--cat-color); }
+.filter-bar .search-input::placeholder { color: #94A3B8; }
+.count-badge {
+  font-size: 13px; color: var(--text-secondary); white-space: nowrap;
+}
+.count-badge strong { color: var(--cat-color); font-weight: 700; }
+
+/* ========== Content ========== */
+.content-area {
+  max-width: var(--page-width); margin: 0 auto;
+  padding: 32px var(--content-padding) 64px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+
+.site-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 18px;
+  background: var(--bg-white);
+  border: 1.5px solid rgba(148,163,184,0.12);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  cursor: pointer;
+}
+.site-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--cat-color);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.brand-color {
+  width: 42px; height: 42px;
+  min-width: 42px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.site-info {
+  display: flex; flex-direction: column; gap: 3px;
+  overflow: hidden; min-width: 0;
+}
+.site-name {
+  font-size: 15px; font-weight: 600; color: var(--text-primary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.site-desc {
+  font-size: 12.5px; font-weight: 400; color: var(--text-secondary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: #F8FAFC;
+  border-top: 1px solid rgba(148,163,184,0.12);
+  padding: 32px var(--content-padding);
+  text-align: center;
+}
+.footer-links {
+  display: flex; justify-content: center; gap: 24px; margin-bottom: 16px;
+}
+.footer-links a {
+  font-size: 13px; color: var(--text-secondary); text-decoration: none;
+}
+.footer-links a:hover { color: var(--primary); }
+.footer-copy {
+  font-size: 12px; color: #94A3B8;
+}
+
+/* ========== No-results message ========== */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center; padding: 48px 0;
+  color: var(--text-secondary); font-size: 15px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .header { padding: 0 16px; }
+  .content-area { padding: 24px 16px 48px; }
+  .cat-hero { padding: 40px 16px 32px; }
+  .cat-hero h1 { font-size: 26px; }
+  .filter-bar { padding: 10px 16px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header">
+  <a href="index.html" class="logo-area">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12C4 8 6 6 9 6C12 6 12 10 15 10C18 10 20 8 22 6C22 12 18 18 12 18C8 18 5 16 2 12Z" fill="white"/>
+        <path d="M2 16C4 14 6 13 9 13C12 13 12 16 15 16C18 16 20 14 22 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="logo-text">luobox</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:20px;">
+    <nav class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="sep">/</span>
+      <span>知识网站</span>
+    </nav>
+    <div class="header-search">
+      <input type="text" placeholder="搜索此分类..." id="headerSearchInput" autocomplete="off">
+      <button class="search-icon-btn" onclick="doHeaderSearch()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2"/><path d="M15 15L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Category Hero ===== -->
+<section class="cat-hero">
+  <div class="cat-hero-inner">
+    <div class="cat-icon-large">
+      <!-- Category-specific icon placeholder -->
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="18" rx="4" stroke="white" stroke-width="2"/>
+        <path d="M8 8h8M8 12h8M8 16h5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1>知识网站</h1>
+    <p class="cat-subtitle">学术 · 教育 · 编程 · 科普</p>
+    <div class="cat-stats">
+      <div class="stat-item">
+        <div class="num">52</div>
+        <div class="label">收录网站</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">TOP 5</div>
+        <div class="label">首页推荐</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">实时</div>
+        <div class="label">持续更新</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Filter Bar ===== -->
+<div class="filter-bar">
+  <input type="text" class="search-input" placeholder="在 知识网站 中搜索..." id="filterInput" autocomplete="off">
+  <span class="count-badge">共 <strong id="visibleCount">52</strong> 个网站</span>
+</div>
+
+<!-- ===== Content Area ===== -->
+<main class="content-area">
+  <div class="card-grid" id="cardGrid">
+      <a class="site-card" href="https://www.cnki.net" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1A5490;"></div>
+        <div class="site-info"><span class="site-name">知网</span><span class="site-desc">中国学术文献网络总库</span></div>
+      </a>
+      <a class="site-card" href="https://zh.wikipedia.org" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #666666;"></div>
+        <div class="site-info"><span class="site-name">维基百科</span><span class="site-desc">自由的百科全书</span></div>
+      </a>
+      <a class="site-card" href="https://baike.baidu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #2962FF;"></div>
+        <div class="site-info"><span class="site-name">百度百科</span><span class="site-desc">中文互联网知识平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.dongde.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6B00;"></div>
+        <div class="site-info"><span class="site-name">懂客</span><span class="site-desc">多领域知识短视频</span></div>
+      </a>
+      <a class="site-card" href="https://www.wanfangdata.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #00A1D6;"></div>
+        <div class="site-info"><span class="site-name">万方数据</span><span class="site-desc">中外学术数据平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.researchgate.net" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #00C853;"></div>
+        <div class="site-info"><span class="site-name">ResearchGate</span><span class="site-desc">全球学者社交网络</span></div>
+      </a>
+      <a class="site-card" href="https://scholar.google.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #4285F4;"></div>
+        <div class="site-info"><span class="site-name">谷歌学术</span><span class="site-desc">免费学术搜索引擎</span></div>
+      </a>
+      <a class="site-card" href="https://xueshu.baidu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #2932E1;"></div>
+        <div class="site-info"><span class="site-name">百度学术</span><span class="site-desc">中文学术搜索引擎</span></div>
+      </a>
+      <a class="site-card" href="https://www.zhihu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #0084FF;"></div>
+        <div class="site-info"><span class="site-name">知乎</span><span class="site-desc">有问题上知乎</span></div>
+      </a>
+      <a class="site-card" href="https://www.douban.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #007722;"></div>
+        <div class="site-info"><span class="site-name">豆瓣</span><span class="site-desc">书影音兴趣小组</span></div>
+      </a>
+      <a class="site-card" href="https://www.quora.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #B92B27;"></div>
+        <div class="site-info"><span class="site-name">Quora</span><span class="site-desc">英文问答社区</span></div>
+      </a>
+      <a class="site-card" href="https://stackoverflow.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #F48024;"></div>
+        <div class="site-info"><span class="site-name">Stack Overflow</span><span class="site-desc">程序员问答社区</span></div>
+      </a>
+      <a class="site-card" href="https://developer.mozilla.org" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #000000;"></div>
+        <div class="site-info"><span class="site-name">MDN Web Docs</span><span class="site-desc">Web开发权威文档</span></div>
+      </a>
+      <a class="site-card" href="https://www.w3schools.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #04AA6D;"></div>
+        <div class="site-info"><span class="site-name">W3Schools</span><span class="site-desc">在线编程教程</span></div>
+      </a>
+      <a class="site-card" href="https://www.runoob.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #4CAF50;"></div>
+        <div class="site-info"><span class="site-name">Runoob</span><span class="site-desc">菜鸟编程教程</span></div>
+      </a>
+      <a class="site-card" href="https://www.imooc.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF5722;"></div>
+        <div class="site-info"><span class="site-name">慕课网</span><span class="site-desc">IT技能学习平台</span></div>
+      </a>
+      <a class="site-card" href="https://study.163.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF4400;"></div>
+        <div class="site-info"><span class="site-name">网易云课堂</span><span class="site-desc">实用技能学习平台</span></div>
+      </a>
+      <a class="site-card" href="https://ke.qq.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #12B7F5;"></div>
+        <div class="site-info"><span class="site-name">腾讯课堂</span><span class="site-desc">专业在线教育平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.xuetangx.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #CF0A2C;"></div>
+        <div class="site-info"><span class="site-name">学堂在线</span><span class="site-desc">清华大学MOOC平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.icourse163.org" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #2073C9;"></div>
+        <div class="site-info"><span class="site-name">中国大学MOOC</span><span class="site-desc">教育部合作MOOC</span></div>
+      </a>
+      <a class="site-card" href="https://www.coursera.org" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #0056D2;"></div>
+        <div class="site-info"><span class="site-name">Coursera</span><span class="site-desc">全球顶尖大学课程</span></div>
+      </a>
+      <a class="site-card" href="https://www.edx.org" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #02262B;"></div>
+        <div class="site-info"><span class="site-name">edX</span><span class="site-desc">哈佛MIT在线课程</span></div>
+      </a>
+      <a class="site-card" href="https://www.udemy.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #A435F0;"></div>
+        <div class="site-info"><span class="site-name">Udemy</span><span class="site-desc">全球最大在线课程平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.khanacademy.org" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #14BF96;"></div>
+        <div class="site-info"><span class="site-name">Khan Academy</span><span class="site-desc">可汗学院 免费教育</span></div>
+      </a>
+      <a class="site-card" href="https://www.ted.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E62B1E;"></div>
+        <div class="site-info"><span class="site-name">TED演讲</span><span class="site-desc">值得传播的思想</span></div>
+      </a>
+      <a class="site-card" href="https://open.163.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #2AACE5;"></div>
+        <div class="site-info"><span class="site-name">网易公开课</span><span class="site-desc">名校公开课合集</span></div>
+      </a>
+      <a class="site-card" href="https://i.chaoxing.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1890FF;"></div>
+        <div class="site-info"><span class="site-name">超星学习通</span><span class="site-desc">移动学习综合平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.zhihuishu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #52C41A;"></div>
+        <div class="site-info"><span class="site-name">智慧树</span><span class="site-desc">高校学分课平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.xueersi.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">学而思网校</span><span class="site-desc">K12在线教育</span></div>
+      </a>
+      <a class="site-card" href="https://www.yuanfudao.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6B00;"></div>
+        <div class="site-info"><span class="site-name">猿辅导</span><span class="site-desc">中小学在线辅导</span></div>
+      </a>
+      <a class="site-card" href="https://www.zybang.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #5B8FF9;"></div>
+        <div class="site-info"><span class="site-name">作业帮</span><span class="site-desc">拍照搜题工具</span></div>
+      </a>
+      <a class="site-card" href="https://www.fenbi.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6B35;"></div>
+        <div class="site-info"><span class="site-name">粉笔</span><span class="site-desc">公考职业培训</span></div>
+      </a>
+      <a class="site-card" href="https://e.offcn.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E03E26;"></div>
+        <div class="site-info"><span class="site-name">中公网校</span><span class="site-desc">公职考试培训</span></div>
+      </a>
+      <a class="site-card" href="https://v.huatu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E74C3C;"></div>
+        <div class="site-info"><span class="site-name">华图在线</span><span class="site-desc">公务员考试备考</span></div>
+      </a>
+      <a class="site-card" href="https://www.ithome.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E90FF;"></div>
+        <div class="site-info"><span class="site-name">IT之家</span><span class="site-desc">科技资讯与教程</span></div>
+      </a>
+      <a class="site-card" href="https://www.infoq.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #D92D2D;"></div>
+        <div class="site-info"><span class="site-name">InfoQ中文站</span><span class="site-desc">技术驱动创新</span></div>
+      </a>
+      <a class="site-card" href="https://juejin.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E80FF;"></div>
+        <div class="site-info"><span class="site-name">掘金</span><span class="site-desc">技术社区与博客</span></div>
+      </a>
+      <a class="site-card" href="https://www.csdn.net" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #F26522;"></div>
+        <div class="site-info"><span class="site-name">CSDN</span><span class="site-desc">开发者技术社区</span></div>
+      </a>
+      <a class="site-card" href="https://www.cnblogs.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1A8CD1;"></div>
+        <div class="site-info"><span class="site-name">博客园</span><span class="site-desc">开发者博客社区</span></div>
+      </a>
+      <a class="site-card" href="https://segmentfault.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #009E96;"></div>
+        <div class="site-info"><span class="site-name">SegmentFault</span><span class="site-desc">中文技术问答</span></div>
+      </a>
+      <a class="site-card" href="https://www.oschina.net" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #3498DB;"></div>
+        <div class="site-info"><span class="site-name">开源中国</span><span class="site-desc">开源技术资讯社区</span></div>
+      </a>
+      <a class="site-card" href="https://www.v2ex.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #333333;"></div>
+        <div class="site-info"><span class="site-name">V2EX</span><span class="site-desc">创意工作者的社区</span></div>
+      </a>
+      <a class="site-card" href="https://sspai.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #DA282A;"></div>
+        <div class="site-info"><span class="site-name">少数派</span><span class="site-desc">数字生活指南</span></div>
+      </a>
+      <a class="site-card" href="https://www.guokr.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #43CE17;"></div>
+        <div class="site-info"><span class="site-name">果壳</span><span class="site-desc">科技主题科普社区</span></div>
+      </a>
+      <a class="site-card" href="https://www.dxy.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #3CB371;"></div>
+        <div class="site-info"><span class="site-name">丁香园</span><span class="site-desc">医疗领域专业社区</span></div>
+      </a>
+      <a class="site-card" href="https://www.mvyxws.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #19BE6B;"></div>
+        <div class="site-info"><span class="site-name">医学微视</span><span class="site-desc">医学科普视频平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.ximalaya.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #ED5858;"></div>
+        <div class="site-info"><span class="site-name">喜马拉雅</span><span class="site-desc">中国领先音频平台</span></div>
+      </a>
+      <a class="site-card" href="https://wiki.mbalib.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E87F0;"></div>
+        <div class="site-info"><span class="site-name">MBA智库</span><span class="site-desc">经管百科知识库</span></div>
+      </a>
+      <a class="site-card" href="https://bbs.pinggu.org" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E65100;"></div>
+        <div class="site-info"><span class="site-name">经管之家</span><span class="site-desc">经济管理论坛</span></div>
+      </a>
+      <a class="site-card" href="https://www.itjuzi.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6B00;"></div>
+        <div class="site-info"><span class="site-name">IT桔子</span><span class="site-desc">创业投资数据库</span></div>
+      </a>
+      <a class="site-card" href="https://www.qcc.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #2962FF;"></div>
+        <div class="site-info"><span class="site-name">企查查</span><span class="site-desc">企业信息查询平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.tianyancha.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #2F54EB;"></div>
+        <div class="site-info"><span class="site-name">天眼查</span><span class="site-desc">商业查询平台</span></div>
+      </a>
+
+  </div>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="index.html">返回首页</a>
+    <a href="knowledge.html">刷新列表</a>
+  </div>
+  <div class="footer-copy">2026 luobox · 收录互联网精彩站点</div>
+</footer>
+
+<script>
+// ===== Search Engine Config =====
+const SEARCH_ENGINES = {
+  baidu: { name: '百度', url: 'https://www.baidu.com/s?wd=', icon: '🔍' },
+  google: { name: 'Google', url: 'https://www.google.com/search?q=', icon: '🌐' },
+  bing: { name: 'Bing', url: 'https://www.bing.com/search?q=', icon: '🔎' }
+};
+let currentEngine = 'baidu';
+
+function doHeaderSearch() {
+  const q = document.getElementById('headerSearchInput').value.trim();
+  if (!q) return;
+  window.open(SEARCH_ENGINES[currentEngine].url + encodeURIComponent(q), '_blank');
+}
+
+document.getElementById('headerSearchInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doHeaderSearch();
+});
+
+// ===== In-page Filter Search =====
+const filterInput = document.getElementById('filterInput');
+const cardGrid = document.getElementById('cardGrid');
+const allCards = Array.from(cardGrid.querySelectorAll('.site-card'));
+const countBadge = document.getElementById('visibleCount');
+
+filterInput.addEventListener('input', () => {
+  const keyword = filterInput.value.trim().toLowerCase();
+  let visible = 0;
+
+  allCards.forEach(card => {
+    const name = card.querySelector('.site-name')?.textContent.toLowerCase() || '';
+    const desc = card.querySelector('.site-desc')?.textContent.toLowerCase() || '';
+
+    if (!keyword || name.includes(keyword) || desc.includes(keyword)) {
+      card.style.display = '';
+      visible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  countBadge.textContent = visible;
+
+  // Show no results message
+  let noResults = document.querySelector('.no-results');
+  if (visible === 0 && !noResults) {
+    const div = document.createElement('div');
+    div.className = 'no-results';
+    div.textContent = '没有找到匹配的网站，换个关键词试试';
+    cardGrid.appendChild(div);
+  } else if (visible > 0 && noResults) {
+    noResults.remove();
+  }
+});
+</script>
+
+</body>
+</html>

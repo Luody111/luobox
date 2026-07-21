@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电商网站 - luobox</title>
+
+<!-- SEO Meta -->
+<meta name="description" content="luobox 电商网站分类导航，收录50个精选电商网站，包括购物 · 海淘 · 生鲜 · 特卖。一键直达常用网站。">
+<meta name="keywords" content="luobox,电商网站,网址导航,购物 · 海淘 · 生鲜 · 特卖">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://luobox.example.com/shop.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="电商网站 - luobox 导航">
+<meta property="og:description" content="电商网站分类收录50个精选网站，一键直达。">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M2 16c2-4 4-6 7-6s3 4 6 4 5-2 7-4c0 6-4 12-10 12S5 20 2 16z' fill='white'/></svg>">
+
+<style>
+/* ========== CSS Reset & Variables ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --bg-white: #FFFFFF;
+  --bg-search: #F0F4F8;
+  --bg-subtle: #F8FAFC;
+  --cat-color: #8B5CF6;
+  --page-width: 1200px;
+  --content-padding: 48px;
+}
+
+body {
+  font-family: 'Sarasa Gothic SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ========== Header ========== */
+.header {
+  width: 100%;
+  height: 64px;
+  background: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--content-padding);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 28px; height: 28px;
+  background: var(--primary);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-icon svg { width: 14px; height: 14px; }
+
+.logo-text {
+  font-size: 17px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.3px;
+}
+
+.header-search {
+  width: 400px; height: 40px;
+  background: var(--bg-search);
+  border-radius: 20px;
+  display: flex; align-items: center;
+  padding: 0 14px; gap: 8px;
+  border: 1.5px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.header-search:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+}
+.header-search input {
+  flex: 1; border: none; outline: none;
+  font-size: 13px; font-family: inherit; color: var(--text-primary); background: transparent;
+}
+.header-search input::placeholder { color: #94A3B8; }
+.search-icon-btn {
+  width: 26px; height: 26px; border: none; background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; border-radius: 50%;
+  color: #94A3B8; padding: 0; transition: background 0.15s;
+}
+.search-icon-btn:hover { background: rgba(37,99,235,0.06); color: var(--primary); }
+
+.breadcrumb {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-secondary);
+}
+.breadcrumb a { text-decoration: none; color: var(--primary); }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #CBD5E1; }
+
+/* ========== Category Hero ========== */
+.cat-hero {
+  background: linear-gradient(135deg, #8B5CF6 0%, #8B5CF6dd 100%);
+  padding: 56px var(--content-padding) 44px;
+  color: white;
+  position: relative; overflow: hidden;
+}
+.cat-hero::before {
+  content: '';
+  position: absolute; top: -40%; right: -15%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.cat-hero-inner { position: relative; z-index: 1; max-width: var(--page-width); margin: 0 auto; }
+.cat-icon-large {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.cat-hero h1 {
+  font-size: 32px; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px;
+}
+.cat-hero .cat-subtitle {
+  font-size: 16px; opacity: 0.9; font-weight: 400;
+}
+.cat-stats {
+  display: flex; gap: 32px; margin-top: 24px;
+}
+.stat-item .num { font-size: 28px; font-weight: 800; }
+.stat-item .label { font-size: 13px; opacity: 0.8; margin-top: 2px; }
+
+/* ========== Filter Bar ========== */
+.filter-bar {
+  max-width: var(--page-width); margin: -24px auto 0;
+  background: var(--bg-white); border-radius: 12px;
+  padding: 14px 24px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  position: relative; z-index: 2;
+}
+.filter-bar .search-input {
+  flex: 1; height: 38px;
+  border: 1.5px solid #E2E8F0; border-radius: 10px;
+  padding: 0 14px; font-size: 14px;
+  transition: border-color 0.2s; outline: none;
+  font-family: inherit; color: var(--text-primary);
+}
+.filter-bar .search-input:focus { border-color: var(--cat-color); }
+.filter-bar .search-input::placeholder { color: #94A3B8; }
+.count-badge {
+  font-size: 13px; color: var(--text-secondary); white-space: nowrap;
+}
+.count-badge strong { color: var(--cat-color); font-weight: 700; }
+
+/* ========== Content ========== */
+.content-area {
+  max-width: var(--page-width); margin: 0 auto;
+  padding: 32px var(--content-padding) 64px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+
+.site-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 18px;
+  background: var(--bg-white);
+  border: 1.5px solid rgba(148,163,184,0.12);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  cursor: pointer;
+}
+.site-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--cat-color);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.brand-color {
+  width: 42px; height: 42px;
+  min-width: 42px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.site-info {
+  display: flex; flex-direction: column; gap: 3px;
+  overflow: hidden; min-width: 0;
+}
+.site-name {
+  font-size: 15px; font-weight: 600; color: var(--text-primary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.site-desc {
+  font-size: 12.5px; font-weight: 400; color: var(--text-secondary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: #F8FAFC;
+  border-top: 1px solid rgba(148,163,184,0.12);
+  padding: 32px var(--content-padding);
+  text-align: center;
+}
+.footer-links {
+  display: flex; justify-content: center; gap: 24px; margin-bottom: 16px;
+}
+.footer-links a {
+  font-size: 13px; color: var(--text-secondary); text-decoration: none;
+}
+.footer-links a:hover { color: var(--primary); }
+.footer-copy {
+  font-size: 12px; color: #94A3B8;
+}
+
+/* ========== No-results message ========== */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center; padding: 48px 0;
+  color: var(--text-secondary); font-size: 15px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .header { padding: 0 16px; }
+  .content-area { padding: 24px 16px 48px; }
+  .cat-hero { padding: 40px 16px 32px; }
+  .cat-hero h1 { font-size: 26px; }
+  .filter-bar { padding: 10px 16px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header">
+  <a href="index.html" class="logo-area">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12C4 8 6 6 9 6C12 6 12 10 15 10C18 10 20 8 22 6C22 12 18 18 12 18C8 18 5 16 2 12Z" fill="white"/>
+        <path d="M2 16C4 14 6 13 9 13C12 13 12 16 15 16C18 16 20 14 22 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="logo-text">luobox</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:20px;">
+    <nav class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="sep">/</span>
+      <span>电商网站</span>
+    </nav>
+    <div class="header-search">
+      <input type="text" placeholder="搜索此分类..." id="headerSearchInput" autocomplete="off">
+      <button class="search-icon-btn" onclick="doHeaderSearch()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2"/><path d="M15 15L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Category Hero ===== -->
+<section class="cat-hero">
+  <div class="cat-hero-inner">
+    <div class="cat-icon-large">
+      <!-- Category-specific icon placeholder -->
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="18" rx="4" stroke="white" stroke-width="2"/>
+        <path d="M8 8h8M8 12h8M8 16h5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1>电商网站</h1>
+    <p class="cat-subtitle">购物 · 海淘 · 生鲜 · 特卖</p>
+    <div class="cat-stats">
+      <div class="stat-item">
+        <div class="num">50</div>
+        <div class="label">收录网站</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">TOP 5</div>
+        <div class="label">首页推荐</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">实时</div>
+        <div class="label">持续更新</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Filter Bar ===== -->
+<div class="filter-bar">
+  <input type="text" class="search-input" placeholder="在 电商网站 中搜索..." id="filterInput" autocomplete="off">
+  <span class="count-badge">共 <strong id="visibleCount">50</strong> 个网站</span>
+</div>
+
+<!-- ===== Content Area ===== -->
+<main class="content-area">
+  <div class="card-grid" id="cardGrid">
+      <a class="site-card" href="https://www.taobao.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF5000;"></div>
+        <div class="site-info"><span class="site-name">淘宝</span><span class="site-desc">万能购物平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.jd.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E4393C;"></div>
+        <div class="site-info"><span class="site-name">京东</span><span class="site-desc">多快好省购物体验</span></div>
+      </a>
+      <a class="site-card" href="https://www.pinduoduo.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6A00;"></div>
+        <div class="site-info"><span class="site-name">拼多多</span><span class="site-desc">拼着买更便宜</span></div>
+      </a>
+      <a class="site-card" href="https://www.xiaohongshu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #F27524;"></div>
+        <div class="site-info"><span class="site-name">小红书</span><span class="site-desc">标记我的生活</span></div>
+      </a>
+      <a class="site-card" href="https://www.vip.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E02E24;"></div>
+        <div class="site-info"><span class="site-name">唯品会</span><span class="site-desc">品牌特卖平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.tmall.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF2741;"></div>
+        <div class="site-info"><span class="site-name">天猫</span><span class="site-desc">品牌旗舰正品</span></div>
+      </a>
+      <a class="site-card" href="https://www.suning.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #F60;"></div>
+        <div class="site-info"><span class="site-name">苏宁易购</span><span class="site-desc">苏宁易购 专注服务</span></div>
+      </a>
+      <a class="site-card" href="https://www.gome.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E60012;"></div>
+        <div class="site-info"><span class="site-name">国美在线</span><span class="site-desc">国美电器网上商城</span></div>
+      </a>
+      <a class="site-card" href="https://www.yhd.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E43130;"></div>
+        <div class="site-info"><span class="site-name">1号店</span><span class="site-desc">网上超市 一小时达</span></div>
+      </a>
+      <a class="site-card" href="https://www.dangdang.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E4393C;"></div>
+        <div class="site-info"><span class="site-name">当当网</span><span class="site-desc">网上购物 当当最好</span></div>
+      </a>
+      <a class="site-card" href="https://www.amazon.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF9900;"></div>
+        <div class="site-info"><span class="site-name">亚马逊中国</span><span class="site-desc">亚马逊 中国站点</span></div>
+      </a>
+      <a class="site-card" href="https://www.kaola.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">考拉海购</span><span class="site-desc">跨境进口电商平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.yangmatou.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E65100;"></div>
+        <div class="site-info"><span class="site-name">洋码头</span><span class="site-desc">海外直邮购物平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.secoo.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #000000;"></div>
+        <div class="site-info"><span class="site-name">寺库</span><span class="site-desc">奢侈品电商</span></div>
+      </a>
+      <a class="site-card" href="https://www.dewu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #000000;"></div>
+        <div class="site-info"><span class="site-name">得物</span><span class="site-desc">球鞋潮牌鉴别交易</span></div>
+      </a>
+      <a class="site-card" href="https://www.goofish.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6A00;"></div>
+        <div class="site-info"><span class="site-name">闲鱼</span><span class="site-desc">闲置二手交易平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.zhuanzhuan.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6B00;"></div>
+        <div class="site-info"><span class="site-name">转转</span><span class="site-desc">二手交易平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.weidian.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">微店</span><span class="site-desc">手机开店用微店</span></div>
+      </a>
+      <a class="site-card" href="https://www.mogujie.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">蘑菇街</span><span class="site-desc">女性时尚消费平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.meilishuo.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6B6B;"></div>
+        <div class="site-info"><span class="site-name">美丽说</span><span class="site-desc">女性时尚社区电商</span></div>
+      </a>
+      <a class="site-card" href="https://ju.taobao.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6A00;"></div>
+        <div class="site-info"><span class="site-name">聚划算</span><span class="site-desc">淘宝特价团购</span></div>
+      </a>
+      <a class="site-card" href="https://www.meituan.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FFC300;"></div>
+        <div class="site-info"><span class="site-name">美团优选</span><span class="site-desc">美团社区团购</span></div>
+      </a>
+      <a class="site-card" href="https://www.freshippo.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #00A0E9;"></div>
+        <div class="site-info"><span class="site-name">盒马鲜生</span><span class="site-desc">新零售生鲜超市</span></div>
+      </a>
+      <a class="site-card" href="https://www.meiguoyixian.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #4CAF50;"></div>
+        <div class="site-info"><span class="site-name">每日优鲜</span><span class="site-desc">生鲜O2O平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.ddmall.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #00B365;"></div>
+        <div class="site-info"><span class="site-name">叮咚买菜</span><span class="site-desc">生鲜电商配送</span></div>
+      </a>
+      <a class="site-card" href="https://www.yonghui.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">永辉超市</span><span class="site-desc">连锁零售超市</span></div>
+      </a>
+      <a class="site-card" href="https://e.rt-mart.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">大润发优鲜</span><span class="site-desc">大润发线上商城</span></div>
+      </a>
+      <a class="site-card" href="https://www.samsclub.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">山姆会员商店</span><span class="site-desc">高端会员制超市</span></div>
+      </a>
+      <a class="site-card" href="https://www.costco.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #0064B8;"></div>
+        <div class="site-info"><span class="site-name">Costco开市客</span><span class="site-desc">会员制仓储超市</span></div>
+      </a>
+      <a class="site-card" href="https://www.1688.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6A00;"></div>
+        <div class="site-info"><span class="site-name">1688</span><span class="site-desc">阿里巴巴批发采购</span></div>
+      </a>
+      <a class="site-card" href="https://www.alibaba.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6A00;"></div>
+        <div class="site-info"><span class="site-name">阿里巴巴国际站</span><span class="site-desc">B2B跨境电商平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.dhgate.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">敦煌网</span><span class="site-desc">跨境电商B2B</span></div>
+      </a>
+      <a class="site-card" href="https://www.aliexpress.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6A00;"></div>
+        <div class="site-info"><span class="site-name">速卖通</span><span class="site-desc">全球速卖通</span></div>
+      </a>
+      <a class="site-card" href="https://www.wish.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #5A31F4;"></div>
+        <div class="site-info"><span class="site-name">Wish</span><span class="site-desc">移动端跨境电商平台</span></div>
+      </a>
+      <a class="site-card" href="https://shopee.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #EE4D2D;"></div>
+        <div class="site-info"><span class="site-name">Shopee</span><span class="site-desc">东南亚跨境电商</span></div>
+      </a>
+      <a class="site-card" href="https://www.lazada.com.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #0F146D;"></div>
+        <div class="site-info"><span class="site-name">Lazada</span><span class="site-desc">东南亚电商平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.youzan.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #31B95B;"></div>
+        <div class="site-info"><span class="site-name">有赞</span><span class="site-desc">商家SaaS服务平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.weimob.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E88E5;"></div>
+        <div class="site-info"><span class="site-name">微盟</span><span class="site-desc">智慧商业服务商</span></div>
+      </a>
+      <a class="site-card" href="https://retail.youzan.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #31B95B;"></div>
+        <div class="site-info"><span class="site-name">有赞零售</span><span class="site-desc">新零售解决方案</span></div>
+      </a>
+      <a class="site-card" href="https://pms.pinduoduo.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E02E24;"></div>
+        <div class="site-info"><span class="site-name">拼多多商家版</span><span class="site-desc">拼多多商家后台</span></div>
+      </a>
+      <a class="site-card" href="https://sell.taobao.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF5000;"></div>
+        <div class="site-info"><span class="site-name">淘宝卖家中心</span><span class="site-desc">淘宝卖家工作台</span></div>
+      </a>
+      <a class="site-card" href="https://help.jd.com/user/issue/list" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E4393C;"></div>
+        <div class="site-info"><span class="site-name">京东商家帮助</span><span class="site-desc">京东商家支持</span></div>
+      </a>
+      <a class="site-card" href="https://ecom.douyin.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #161823;"></div>
+        <div class="site-info"><span class="site-name">抖音电商</span><span class="site-desc">抖音小店商家</span></div>
+      </a>
+      <a class="site-card" href="https://seller.kuaishou.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF4900;"></div>
+        <div class="site-info"><span class="site-name">快手电商</span><span class="site-desc">快手商家后台</span></div>
+      </a>
+      <a class="site-card" href="https://shop.weixin.qq.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #07C160;"></div>
+        <div class="site-info"><span class="site-name">微信小商店</span><span class="site-desc">小程序电商工具</span></div>
+      </a>
+      <a class="site-card" href="https://www.smzdm.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">什么值得买</span><span class="site-desc">网购消费建议</span></div>
+      </a>
+      <a class="site-card" href="https://www.manmanbuy.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">慢慢买</span><span class="site-desc">全网比价查询</span></div>
+      </a>
+      <a class="site-card" href="https://www.hhz.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">惠惠购物助手</span><span class="site-desc">购物比价浏览器插件</span></div>
+      </a>
+      <a class="site-card" href="pro.smzdm.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">什么值得买Pro</span><span class="site-desc">消费决策平台专业版</span></div>
+      </a>
+      <a class="site-card" href="https://www.fanli.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6B00;"></div>
+        <div class="site-info"><span class="site-name">返利网</span><span class="site-desc">购物返利优惠</span></div>
+      </a>
+
+  </div>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="index.html">返回首页</a>
+    <a href="shop.html">刷新列表</a>
+  </div>
+  <div class="footer-copy">2026 luobox · 收录互联网精彩站点</div>
+</footer>
+
+<script>
+// ===== Search Engine Config =====
+const SEARCH_ENGINES = {
+  baidu: { name: '百度', url: 'https://www.baidu.com/s?wd=', icon: '🔍' },
+  google: { name: 'Google', url: 'https://www.google.com/search?q=', icon: '🌐' },
+  bing: { name: 'Bing', url: 'https://www.bing.com/search?q=', icon: '🔎' }
+};
+let currentEngine = 'baidu';
+
+function doHeaderSearch() {
+  const q = document.getElementById('headerSearchInput').value.trim();
+  if (!q) return;
+  window.open(SEARCH_ENGINES[currentEngine].url + encodeURIComponent(q), '_blank');
+}
+
+document.getElementById('headerSearchInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doHeaderSearch();
+});
+
+// ===== In-page Filter Search =====
+const filterInput = document.getElementById('filterInput');
+const cardGrid = document.getElementById('cardGrid');
+const allCards = Array.from(cardGrid.querySelectorAll('.site-card'));
+const countBadge = document.getElementById('visibleCount');
+
+filterInput.addEventListener('input', () => {
+  const keyword = filterInput.value.trim().toLowerCase();
+  let visible = 0;
+
+  allCards.forEach(card => {
+    const name = card.querySelector('.site-name')?.textContent.toLowerCase() || '';
+    const desc = card.querySelector('.site-desc')?.textContent.toLowerCase() || '';
+
+    if (!keyword || name.includes(keyword) || desc.includes(keyword)) {
+      card.style.display = '';
+      visible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  countBadge.textContent = visible;
+
+  // Show no results message
+  let noResults = document.querySelector('.no-results');
+  if (visible === 0 && !noResults) {
+    const div = document.createElement('div');
+    div.className = 'no-results';
+    div.textContent = '没有找到匹配的网站，换个关键词试试';
+    cardGrid.appendChild(div);
+  } else if (visible > 0 && noResults) {
+    noResults.remove();
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文学网站 - luobox</title>
+
+<!-- SEO Meta -->
+<meta name="description" content="luobox 文学网站分类导航，收录50个精选文学网站，包括小说 · 阅读 · 散文 · 诗歌。一键直达常用网站。">
+<meta name="keywords" content="luobox,文学网站,网址导航,小说 · 阅读 · 散文 · 诗歌">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://luobox.example.com/literature.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="文学网站 - luobox 导航">
+<meta property="og:description" content="文学网站分类收录50个精选网站，一键直达。">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M2 16c2-4 4-6 7-6s3 4 6 4 5-2 7-4c0 6-4 12-10 12S5 20 2 16z' fill='white'/></svg>">
+
+<style>
+/* ========== CSS Reset & Variables ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --bg-white: #FFFFFF;
+  --bg-search: #F0F4F8;
+  --bg-subtle: #F8FAFC;
+  --cat-color: #F59E0B;
+  --page-width: 1200px;
+  --content-padding: 48px;
+}
+
+body {
+  font-family: 'Sarasa Gothic SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ========== Header ========== */
+.header {
+  width: 100%;
+  height: 64px;
+  background: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--content-padding);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 28px; height: 28px;
+  background: var(--primary);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-icon svg { width: 14px; height: 14px; }
+
+.logo-text {
+  font-size: 17px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.3px;
+}
+
+.header-search {
+  width: 400px; height: 40px;
+  background: var(--bg-search);
+  border-radius: 20px;
+  display: flex; align-items: center;
+  padding: 0 14px; gap: 8px;
+  border: 1.5px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.header-search:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+}
+.header-search input {
+  flex: 1; border: none; outline: none;
+  font-size: 13px; font-family: inherit; color: var(--text-primary); background: transparent;
+}
+.header-search input::placeholder { color: #94A3B8; }
+.search-icon-btn {
+  width: 26px; height: 26px; border: none; background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; border-radius: 50%;
+  color: #94A3B8; padding: 0; transition: background 0.15s;
+}
+.search-icon-btn:hover { background: rgba(37,99,235,0.06); color: var(--primary); }
+
+.breadcrumb {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-secondary);
+}
+.breadcrumb a { text-decoration: none; color: var(--primary); }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #CBD5E1; }
+
+/* ========== Category Hero ========== */
+.cat-hero {
+  background: linear-gradient(135deg, #F59E0B 0%, #F59E0Bdd 100%);
+  padding: 56px var(--content-padding) 44px;
+  color: white;
+  position: relative; overflow: hidden;
+}
+.cat-hero::before {
+  content: '';
+  position: absolute; top: -40%; right: -15%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.cat-hero-inner { position: relative; z-index: 1; max-width: var(--page-width); margin: 0 auto; }
+.cat-icon-large {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.cat-hero h1 {
+  font-size: 32px; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px;
+}
+.cat-hero .cat-subtitle {
+  font-size: 16px; opacity: 0.9; font-weight: 400;
+}
+.cat-stats {
+  display: flex; gap: 32px; margin-top: 24px;
+}
+.stat-item .num { font-size: 28px; font-weight: 800; }
+.stat-item .label { font-size: 13px; opacity: 0.8; margin-top: 2px; }
+
+/* ========== Filter Bar ========== */
+.filter-bar {
+  max-width: var(--page-width); margin: -24px auto 0;
+  background: var(--bg-white); border-radius: 12px;
+  padding: 14px 24px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  position: relative; z-index: 2;
+}
+.filter-bar .search-input {
+  flex: 1; height: 38px;
+  border: 1.5px solid #E2E8F0; border-radius: 10px;
+  padding: 0 14px; font-size: 14px;
+  transition: border-color 0.2s; outline: none;
+  font-family: inherit; color: var(--text-primary);
+}
+.filter-bar .search-input:focus { border-color: var(--cat-color); }
+.filter-bar .search-input::placeholder { color: #94A3B8; }
+.count-badge {
+  font-size: 13px; color: var(--text-secondary); white-space: nowrap;
+}
+.count-badge strong { color: var(--cat-color); font-weight: 700; }
+
+/* ========== Content ========== */
+.content-area {
+  max-width: var(--page-width); margin: 0 auto;
+  padding: 32px var(--content-padding) 64px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+
+.site-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 18px;
+  background: var(--bg-white);
+  border: 1.5px solid rgba(148,163,184,0.12);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  cursor: pointer;
+}
+.site-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--cat-color);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.brand-color {
+  width: 42px; height: 42px;
+  min-width: 42px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.site-info {
+  display: flex; flex-direction: column; gap: 3px;
+  overflow: hidden; min-width: 0;
+}
+.site-name {
+  font-size: 15px; font-weight: 600; color: var(--text-primary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.site-desc {
+  font-size: 12.5px; font-weight: 400; color: var(--text-secondary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: #F8FAFC;
+  border-top: 1px solid rgba(148,163,184,0.12);
+  padding: 32px var(--content-padding);
+  text-align: center;
+}
+.footer-links {
+  display: flex; justify-content: center; gap: 24px; margin-bottom: 16px;
+}
+.footer-links a {
+  font-size: 13px; color: var(--text-secondary); text-decoration: none;
+}
+.footer-links a:hover { color: var(--primary); }
+.footer-copy {
+  font-size: 12px; color: #94A3B8;
+}
+
+/* ========== No-results message ========== */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center; padding: 48px 0;
+  color: var(--text-secondary); font-size: 15px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .header { padding: 0 16px; }
+  .content-area { padding: 24px 16px 48px; }
+  .cat-hero { padding: 40px 16px 32px; }
+  .cat-hero h1 { font-size: 26px; }
+  .filter-bar { padding: 10px 16px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header">
+  <a href="index.html" class="logo-area">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12C4 8 6 6 9 6C12 6 12 10 15 10C18 10 20 8 22 6C22 12 18 18 12 18C8 18 5 16 2 12Z" fill="white"/>
+        <path d="M2 16C4 14 6 13 9 13C12 13 12 16 15 16C18 16 20 14 22 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="logo-text">luobox</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:20px;">
+    <nav class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="sep">/</span>
+      <span>文学网站</span>
+    </nav>
+    <div class="header-search">
+      <input type="text" placeholder="搜索此分类..." id="headerSearchInput" autocomplete="off">
+      <button class="search-icon-btn" onclick="doHeaderSearch()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2"/><path d="M15 15L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Category Hero ===== -->
+<section class="cat-hero">
+  <div class="cat-hero-inner">
+    <div class="cat-icon-large">
+      <!-- Category-specific icon placeholder -->
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="18" rx="4" stroke="white" stroke-width="2"/>
+        <path d="M8 8h8M8 12h8M8 16h5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1>文学网站</h1>
+    <p class="cat-subtitle">小说 · 阅读 · 散文 · 诗歌</p>
+    <div class="cat-stats">
+      <div class="stat-item">
+        <div class="num">50</div>
+        <div class="label">收录网站</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">TOP 5</div>
+        <div class="label">首页推荐</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">实时</div>
+        <div class="label">持续更新</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Filter Bar ===== -->
+<div class="filter-bar">
+  <input type="text" class="search-input" placeholder="在 文学网站 中搜索..." id="filterInput" autocomplete="off">
+  <span class="count-badge">共 <strong id="visibleCount">50</strong> 个网站</span>
+</div>
+
+<!-- ===== Content Area ===== -->
+<main class="content-area">
+  <div class="card-grid" id="cardGrid">
+      <a class="site-card" href="https://www.qidian.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #BF360C;"></div>
+        <div class="site-info"><span class="site-name">起点中文网</span><span class="site-desc">阅文集团旗下原创平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.jjwxc.net" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">晋江文学城</span><span class="site-desc">女性向小说阅读平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.xxsy.net" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E91E63;"></div>
+        <div class="site-info"><span class="site-name">潇湘书院</span><span class="site-desc">女生原创电子阅读</span></div>
+      </a>
+      <a class="site-card" href="https://book.douban.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #43A047;"></div>
+        <div class="site-info"><span class="site-name">豆瓣读书</span><span class="site-desc">读书人的精神角落</span></div>
+      </a>
+      <a class="site-card" href="http://www.zongheng.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #F9A825;"></div>
+        <div class="site-info"><span class="site-name">纵横中文网</span><span class="site-desc">畅享创作乐趣</span></div>
+      </a>
+      <a class="site-card" href="https://www.qimao.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #7B1FA2;"></div>
+        <div class="site-info"><span class="site-name">七猫小说</span><span class="site-desc">免费看小说追书神器</span></div>
+      </a>
+      <a class="site-card" href="https://fanqie.novel.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #F44336;"></div>
+        <div class="site-info"><span class="site-name">番茄小说</span><span class="site-desc">免费小说阅读APP</span></div>
+      </a>
+      <a class="site-card" href="https://b.faloo.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E64A19;"></div>
+        <div class="site-info"><span class="site-name">飞卢小说网</span><span class="site-desc">网络小说原创平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.readnovel.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF7043;"></div>
+        <div class="site-info"><span class="site-name">小说阅读网</span><span class="site-desc">热门小说免费读</span></div>
+      </a>
+      <a class="site-card" href="http://girls.zongheng.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #EC407A;"></div>
+        <div class="site-info"><span class="site-name">纵横女生网</span><span class="site-desc">女生原创文学</span></div>
+      </a>
+      <a class="site-card" href="https://www.hongxiu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E91E63;"></div>
+        <div class="site-info"><span class="site-name">红袖添香</span><span class="site-desc">女性原创小说网</span></div>
+      </a>
+      <a class="site-card" href="https://www.yqxs.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #F48FB1;"></div>
+        <div class="site-info"><span class="site-name">言情小说吧</span><span class="site-desc">言情小说阅读基地</span></div>
+      </a>
+      <a class="site-card" href="https://nvl.qidian.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #EF5350;"></div>
+        <div class="site-info"><span class="site-name">起点女生网</span><span class="site-desc">起点女频频道</span></div>
+      </a>
+      <a class="site-card" href="https://yunqi.qq.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6B6B;"></div>
+        <div class="site-info"><span class="site-name">云起书院</span><span class="site-desc">腾讯云起女频平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.ruochuwang.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #BA68C8;"></div>
+        <div class="site-info"><span class="site-name">若初文学网</span><span class="site-desc">原创网络文学</span></div>
+      </a>
+      <a class="site-card" href="https://read.motie.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #EF6C00;"></div>
+        <div class="site-info"><span class="site-name">磨铁阅读</span><span class="site-desc">磨铁旗下阅读平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.lianshangwenxue.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF5722;"></div>
+        <div class="site-info"><span class="site-name">连尚文学</span><span class="site-desc">免费阅读平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.ireader.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1565C0;"></div>
+        <div class="site-info"><span class="site-name">掌阅</span><span class="site-desc">数字阅读领导品牌</span></div>
+      </a>
+      <a class="site-card" href="https://book.qq.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #12B7F5;"></div>
+        <div class="site-info"><span class="site-name">QQ阅读</span><span class="site-desc">QQ阅读 海量正版</span></div>
+      </a>
+      <a class="site-card" href="https://weread.qq.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #07C160;"></div>
+        <div class="site-info"><span class="site-name">微信读书</span><span class="site-desc">微信读书 正版电子书</span></div>
+      </a>
+      <a class="site-card" href="https://book.douban.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #007722;"></div>
+        <div class="site-info"><span class="site-name">豆瓣读书</span><span class="site-desc">书影音全记录</span></div>
+      </a>
+      <a class="site-card" href="https://book.dangdang.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E4393C;"></div>
+        <div class="site-info"><span class="site-name">当当读书</span><span class="site-desc">当当网电子书店</span></div>
+      </a>
+      <a class="site-card" href="https://www.amazon.cn/kindle" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF9900;"></div>
+        <div class="site-info"><span class="site-name">亚马逊Kindle</span><span class="site-desc">全球电子阅读器</span></div>
+      </a>
+      <a class="site-card" href="https://e-book.jd.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E4393C;"></div>
+        <div class="site-info"><span class="site-name">京东读书</span><span class="site-desc">京东电子书平台</span></div>
+      </a>
+      <a class="site-card" href="https://yuedu.163.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E90FF;"></div>
+        <div class="site-info"><span class="site-name">网易云阅读</span><span class="site-desc">网易精品阅读</span></div>
+      </a>
+      <a class="site-card" href="https://www.aliwx.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6A00;"></div>
+        <div class="site-info"><span class="site-name">阿里文学</span><span class="site-desc">阿里旗下阅读平台</span></div>
+      </a>
+      <a class="site-card" href="https://wenku.baidu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #2932E1;"></div>
+        <div class="site-info"><span class="site-name">百度文库</span><span class="site-desc">在线文档分享平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.docin.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">豆丁文档</span><span class="site-desc">中文文档分享平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.doc88.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF8C00;"></div>
+        <div class="site-info"><span class="site-name">道客巴巴</span><span class="site-desc">在线文档共享</span></div>
+      </a>
+      <a class="site-card" href="https://www.book118.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #4CAF50;"></div>
+        <div class="site-info"><span class="site-name">原创力文档</span><span class="site-desc">文档上传下载</span></div>
+      </a>
+      <a class="site-card" href="http://www.360doc.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF4500;"></div>
+        <div class="site-info"><span class="site-name">360个人图书馆</span><span class="site-desc">个人图书馆收藏夹</span></div>
+      </a>
+      <a class="site-card" href="http://www.guoxue.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #8B4513;"></div>
+        <div class="site-info"><span class="site-name">国学网</span><span class="site-desc">中华传统文化门户</span></div>
+      </a>
+      <a class="site-card" href="https://so.gushiwen.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #795548;"></div>
+        <div class="site-info"><span class="site-name">古诗文网</span><span class="site-desc">古诗文检索鉴赏</span></div>
+      </a>
+      <a class="site-card" href="https://www.shicimingju.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #5D4037;"></div>
+        <div class="site-info"><span class="site-name">诗词名句网</span><span class="site-desc">经典诗词名句大全</span></div>
+      </a>
+      <a class="site-card" href="https://www.qb5200.co" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF7043;"></div>
+        <div class="site-info"><span class="site-name">全本小说网</span><span class="site-desc">全本小说免费阅读</span></div>
+      </a>
+      <a class="site-card" href="https://www.23us.cc" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E64A19;"></div>
+        <div class="site-info"><span class="site-name">顶点小说</span><span class="site-desc">免费小说更新快</span></div>
+      </a>
+      <a class="site-card" href="https://www.biquge5200.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #F44336;"></div>
+        <div class="site-info"><span class="site-name">笔趣阁</span><span class="site-desc">小说更新最快</span></div>
+      </a>
+      <a class="site-card" href="https://www.biqukan.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E91E63;"></div>
+        <div class="site-info"><span class="site-name">笔趣看</span><span class="site-desc">免费小说阅读网</span></div>
+      </a>
+      <a class="site-card" href="https://81new.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1565C0;"></div>
+        <div class="site-info"><span class="site-name">八一中文网</span><span class="site-desc">军事历史小说</span></div>
+      </a>
+      <a class="site-card" href="https://www.xuanhuan.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #673AB7;"></div>
+        <div class="site-info"><span class="site-name">玄幻小说网</span><span class="site-desc">玄幻奇幻作品集</span></div>
+      </a>
+      <a class="site-card" href="https://www.xuanyi.org" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #37474F;"></div>
+        <div class="site-info"><span class="site-name">悬疑推理网</span><span class="site-desc">悬疑推理作品</span></div>
+      </a>
+      <a class="site-card" href="https://www.sanweng.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #8D6E63;"></div>
+        <div class="site-info"><span class="site-name">散文网</span><span class="site-desc">散文随笔精选</span></div>
+      </a>
+      <a class="site-card" href="https://www.shigeku.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #5C6BC0;"></div>
+        <div class="site-info"><span class="site-name">诗歌库</span><span class="site-desc">现代诗歌作品库</span></div>
+      </a>
+      <a class="site-card" href="https://www.61wen.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FFCA28;"></div>
+        <div class="site-info"><span class="site-name">儿童文学网</span><span class="site-desc">少儿读物平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.khxxw.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #00BCD4;"></div>
+        <div class="site-info"><span class="site-name">科幻小说网</span><span class="site-desc">科幻作品专区</span></div>
+      </a>
+      <a class="site-card" href="https://m.jjwxc.net" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E53935;"></div>
+        <div class="site-info"><span class="site-name">晋江文学城手机版</span><span class="site-desc">JJWXC移动端阅读</span></div>
+      </a>
+      <a class="site-card" href="https://www.webnovel.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #BF360C;"></div>
+        <div class="site-info"><span class="site-name">起点国际版</span><span class="site-desc">起点海外网文平台</span></div>
+      </a>
+      <a class="site-card" href="http://www.zongheng.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #F9A825;"></div>
+        <div class="site-info"><span class="site-name">纵横中文网</span><span class="site-desc">男生原创小说平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.zhulang.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E65100;"></div>
+        <div class="site-info"><span class="site-name">逐浪小说网</span><span class="site-desc">原创网络文学基地</span></div>
+      </a>
+      <a class="site-card" href="https://www.hongshu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #EC407A;"></div>
+        <div class="site-info"><span class="site-name">红薯中文网</span><span class="site-desc">言情小说创作阅读</span></div>
+      </a>
+
+  </div>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="index.html">返回首页</a>
+    <a href="literature.html">刷新列表</a>
+  </div>
+  <div class="footer-copy">2026 luobox · 收录互联网精彩站点</div>
+</footer>
+
+<script>
+// ===== Search Engine Config =====
+const SEARCH_ENGINES = {
+  baidu: { name: '百度', url: 'https://www.baidu.com/s?wd=', icon: '🔍' },
+  google: { name: 'Google', url: 'https://www.google.com/search?q=', icon: '🌐' },
+  bing: { name: 'Bing', url: 'https://www.bing.com/search?q=', icon: '🔎' }
+};
+let currentEngine = 'baidu';
+
+function doHeaderSearch() {
+  const q = document.getElementById('headerSearchInput').value.trim();
+  if (!q) return;
+  window.open(SEARCH_ENGINES[currentEngine].url + encodeURIComponent(q), '_blank');
+}
+
+document.getElementById('headerSearchInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doHeaderSearch();
+});
+
+// ===== In-page Filter Search =====
+const filterInput = document.getElementById('filterInput');
+const cardGrid = document.getElementById('cardGrid');
+const allCards = Array.from(cardGrid.querySelectorAll('.site-card'));
+const countBadge = document.getElementById('visibleCount');
+
+filterInput.addEventListener('input', () => {
+  const keyword = filterInput.value.trim().toLowerCase();
+  let visible = 0;
+
+  allCards.forEach(card => {
+    const name = card.querySelector('.site-name')?.textContent.toLowerCase() || '';
+    const desc = card.querySelector('.site-desc')?.textContent.toLowerCase() || '';
+
+    if (!keyword || name.includes(keyword) || desc.includes(keyword)) {
+      card.style.display = '';
+      visible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  countBadge.textContent = visible;
+
+  // Show no results message
+  let noResults = document.querySelector('.no-results');
+  if (visible === 0 && !noResults) {
+    const div = document.createElement('div');
+    div.className = 'no-results';
+    div.textContent = '没有找到匹配的网站，换个关键词试试';
+    cardGrid.appendChild(div);
+  } else if (visible > 0 && noResults) {
+    noResults.remove();
+  }
+});
+</script>
+
+</body>
+</html>

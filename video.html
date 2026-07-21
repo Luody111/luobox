@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>视频网站 - luobox</title>
+
+<!-- SEO Meta -->
+<meta name="description" content="luobox 视频网站分类导航，收录51个精选视频网站，包括短视频 · 直播 · 影视 · 演出。一键直达常用网站。">
+<meta name="keywords" content="luobox,视频网站,网址导航,短视频 · 直播 · 影视 · 演出">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://luobox.example.com/video.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="视频网站 - luobox 导航">
+<meta property="og:description" content="视频网站分类收录51个精选网站，一键直达。">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M2 16c2-4 4-6 7-6s3 4 6 4 5-2 7-4c0 6-4 12-10 12S5 20 2 16z' fill='white'/></svg>">
+
+<style>
+/* ========== CSS Reset & Variables ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --bg-white: #FFFFFF;
+  --bg-search: #F0F4F8;
+  --bg-subtle: #F8FAFC;
+  --cat-color: #EF4444;
+  --page-width: 1200px;
+  --content-padding: 48px;
+}
+
+body {
+  font-family: 'Sarasa Gothic SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ========== Header ========== */
+.header {
+  width: 100%;
+  height: 64px;
+  background: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--content-padding);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 28px; height: 28px;
+  background: var(--primary);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-icon svg { width: 14px; height: 14px; }
+
+.logo-text {
+  font-size: 17px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.3px;
+}
+
+.header-search {
+  width: 400px; height: 40px;
+  background: var(--bg-search);
+  border-radius: 20px;
+  display: flex; align-items: center;
+  padding: 0 14px; gap: 8px;
+  border: 1.5px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.header-search:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+}
+.header-search input {
+  flex: 1; border: none; outline: none;
+  font-size: 13px; font-family: inherit; color: var(--text-primary); background: transparent;
+}
+.header-search input::placeholder { color: #94A3B8; }
+.search-icon-btn {
+  width: 26px; height: 26px; border: none; background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; border-radius: 50%;
+  color: #94A3B8; padding: 0; transition: background 0.15s;
+}
+.search-icon-btn:hover { background: rgba(37,99,235,0.06); color: var(--primary); }
+
+.breadcrumb {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-secondary);
+}
+.breadcrumb a { text-decoration: none; color: var(--primary); }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #CBD5E1; }
+
+/* ========== Category Hero ========== */
+.cat-hero {
+  background: linear-gradient(135deg, #EF4444 0%, #EF4444dd 100%);
+  padding: 56px var(--content-padding) 44px;
+  color: white;
+  position: relative; overflow: hidden;
+}
+.cat-hero::before {
+  content: '';
+  position: absolute; top: -40%; right: -15%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.cat-hero-inner { position: relative; z-index: 1; max-width: var(--page-width); margin: 0 auto; }
+.cat-icon-large {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.cat-hero h1 {
+  font-size: 32px; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px;
+}
+.cat-hero .cat-subtitle {
+  font-size: 16px; opacity: 0.9; font-weight: 400;
+}
+.cat-stats {
+  display: flex; gap: 32px; margin-top: 24px;
+}
+.stat-item .num { font-size: 28px; font-weight: 800; }
+.stat-item .label { font-size: 13px; opacity: 0.8; margin-top: 2px; }
+
+/* ========== Filter Bar ========== */
+.filter-bar {
+  max-width: var(--page-width); margin: -24px auto 0;
+  background: var(--bg-white); border-radius: 12px;
+  padding: 14px 24px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  position: relative; z-index: 2;
+}
+.filter-bar .search-input {
+  flex: 1; height: 38px;
+  border: 1.5px solid #E2E8F0; border-radius: 10px;
+  padding: 0 14px; font-size: 14px;
+  transition: border-color 0.2s; outline: none;
+  font-family: inherit; color: var(--text-primary);
+}
+.filter-bar .search-input:focus { border-color: var(--cat-color); }
+.filter-bar .search-input::placeholder { color: #94A3B8; }
+.count-badge {
+  font-size: 13px; color: var(--text-secondary); white-space: nowrap;
+}
+.count-badge strong { color: var(--cat-color); font-weight: 700; }
+
+/* ========== Content ========== */
+.content-area {
+  max-width: var(--page-width); margin: 0 auto;
+  padding: 32px var(--content-padding) 64px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+
+.site-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 18px;
+  background: var(--bg-white);
+  border: 1.5px solid rgba(148,163,184,0.12);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  cursor: pointer;
+}
+.site-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--cat-color);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.brand-color {
+  width: 42px; height: 42px;
+  min-width: 42px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.site-info {
+  display: flex; flex-direction: column; gap: 3px;
+  overflow: hidden; min-width: 0;
+}
+.site-name {
+  font-size: 15px; font-weight: 600; color: var(--text-primary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.site-desc {
+  font-size: 12.5px; font-weight: 400; color: var(--text-secondary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: #F8FAFC;
+  border-top: 1px solid rgba(148,163,184,0.12);
+  padding: 32px var(--content-padding);
+  text-align: center;
+}
+.footer-links {
+  display: flex; justify-content: center; gap: 24px; margin-bottom: 16px;
+}
+.footer-links a {
+  font-size: 13px; color: var(--text-secondary); text-decoration: none;
+}
+.footer-links a:hover { color: var(--primary); }
+.footer-copy {
+  font-size: 12px; color: #94A3B8;
+}
+
+/* ========== No-results message ========== */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center; padding: 48px 0;
+  color: var(--text-secondary); font-size: 15px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .header { padding: 0 16px; }
+  .content-area { padding: 24px 16px 48px; }
+  .cat-hero { padding: 40px 16px 32px; }
+  .cat-hero h1 { font-size: 26px; }
+  .filter-bar { padding: 10px 16px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header">
+  <a href="index.html" class="logo-area">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12C4 8 6 6 9 6C12 6 12 10 15 10C18 10 20 8 22 6C22 12 18 18 12 18C8 18 5 16 2 12Z" fill="white"/>
+        <path d="M2 16C4 14 6 13 9 13C12 13 12 16 15 16C18 16 20 14 22 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="logo-text">luobox</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:20px;">
+    <nav class="breadcrumb">
+      <a href="index.html">首页</a>
+      <span class="sep">/</span>
+      <span>视频网站</span>
+    </nav>
+    <div class="header-search">
+      <input type="text" placeholder="搜索此分类..." id="headerSearchInput" autocomplete="off">
+      <button class="search-icon-btn" onclick="doHeaderSearch()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2"/><path d="M15 15L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Category Hero ===== -->
+<section class="cat-hero">
+  <div class="cat-hero-inner">
+    <div class="cat-icon-large">
+      <!-- Category-specific icon placeholder -->
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="18" rx="4" stroke="white" stroke-width="2"/>
+        <path d="M8 8h8M8 12h8M8 16h5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1>视频网站</h1>
+    <p class="cat-subtitle">短视频 · 直播 · 影视 · 演出</p>
+    <div class="cat-stats">
+      <div class="stat-item">
+        <div class="num">51</div>
+        <div class="label">收录网站</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">TOP 5</div>
+        <div class="label">首页推荐</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">实时</div>
+        <div class="label">持续更新</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Filter Bar ===== -->
+<div class="filter-bar">
+  <input type="text" class="search-input" placeholder="在 视频网站 中搜索..." id="filterInput" autocomplete="off">
+  <span class="count-badge">共 <strong id="visibleCount">51</strong> 个网站</span>
+</div>
+
+<!-- ===== Content Area ===== -->
+<main class="content-area">
+  <div class="card-grid" id="cardGrid">
+      <a class="site-card" href="https://www.douyin.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FE2C55;"></div>
+        <div class="site-info"><span class="site-name">抖音</span><span class="site-desc">记录美好生活</span></div>
+      </a>
+      <a class="site-card" href="https://www.bilibili.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #00A1D6;"></div>
+        <div class="site-info"><span class="site-name">哔哩哔哩</span><span class="site-desc">国内知名视频弹幕网站</span></div>
+      </a>
+      <a class="site-card" href="https://www.youtube.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF0000;"></div>
+        <div class="site-info"><span class="site-name">YouTube</span><span class="site-desc">全球最大视频平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.kuaishou.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6B00;"></div>
+        <div class="site-info"><span class="site-name">快手</span><span class="site-desc">拥抱每一种生活</span></div>
+      </a>
+      <a class="site-card" href="https://www.youku.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #00A1D6;"></div>
+        <div class="site-info"><span class="site-name">优酷</span><span class="site-desc">这世界很酷</span></div>
+      </a>
+      <a class="site-card" href="https://www.ixigua.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF9000;"></div>
+        <div class="site-info"><span class="site-name">西瓜视频</span><span class="site-desc">给你新鲜好看</span></div>
+      </a>
+      <a class="site-card" href="https://www.mgtv.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF5C00;"></div>
+        <div class="site-info"><span class="site-name">芒果TV</span><span class="site-desc">青春湖南 芒果出品</span></div>
+      </a>
+      <a class="site-card" href="https://www.iqiyi.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #00BE06;"></div>
+        <div class="site-info"><span class="site-name">爱奇艺</span><span class="site-desc">爱奇艺·悦享品质</span></div>
+      </a>
+      <a class="site-card" href="https://v.qq.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF0000;"></div>
+        <div class="site-info"><span class="site-name">腾讯视频</span><span class="site-desc">不负好时光</span></div>
+      </a>
+      <a class="site-card" href="https://tv.sohu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #EA1E0C;"></div>
+        <div class="site-info"><span class="site-name">搜狐视频</span><span class="site-desc">搜狐视频 综合平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.pptv.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6600;"></div>
+        <div class="site-info"><span class="site-name">PP视频</span><span class="site-desc">聚精彩 偶遇你</span></div>
+      </a>
+      <a class="site-card" href="https://www.le.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #EE1C25;"></div>
+        <div class="site-info"><span class="site-name">乐视视频</span><span class="site-desc">乐视视频 生态体验</span></div>
+      </a>
+      <a class="site-card" href="https://www.miguvideo.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #F5A623;"></div>
+        <div class="site-info"><span class="site-name">咪咕视频</span><span class="site-desc">中国移动 视频平台</span></div>
+      </a>
+      <a class="site-card" href="https://yangshipin.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E60012;"></div>
+        <div class="site-info"><span class="site-name">央视频</span><span class="site-desc">中央广播电视总台</span></div>
+      </a>
+      <a class="site-card" href="https://www.hoshan.net" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FE2C55;"></div>
+        <div class="site-info"><span class="site-name">抖音火山版</span><span class="site-desc">火山小视频</span></div>
+      </a>
+      <a class="site-card" href="https://weishi.qq.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1E88E5;"></div>
+        <div class="site-info"><span class="site-name">微视</span><span class="site-desc">腾讯旗下短视频</span></div>
+      </a>
+      <a class="site-card" href="https://haokan.baidu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #06A7FF;"></div>
+        <div class="site-info"><span class="site-name">好看视频</span><span class="site-desc">百度短视频平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.xiaohongshu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FE2C55;"></div>
+        <div class="site-info"><span class="site-name">小红书视频</span><span class="site-desc">标记我的生活</span></div>
+      </a>
+      <a class="site-card" href="https://www.acfun.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FDAC33;"></div>
+        <div class="site-info"><span class="site-name">AcFun</span><span class="site-desc">认真你就输啦</span></div>
+      </a>
+      <a class="site-card" href="https://cc.163.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E31436;"></div>
+        <div class="site-info"><span class="site-name">网易CC直播</span><span class="site-desc">网易游戏直播</span></div>
+      </a>
+      <a class="site-card" href="https://www.douyu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF6A00;"></div>
+        <div class="site-info"><span class="site-name">斗鱼直播</span><span class="site-desc">每个人的直播平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.huya.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #EB7B55;"></div>
+        <div class="site-info"><span class="site-name">虎牙直播</span><span class="site-desc">虎牙直播 不止于直播</span></div>
+      </a>
+      <a class="site-card" href="https://www.yy.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF5000;"></div>
+        <div class="site-info"><span class="site-name">YY直播</span><span class="site-desc">全民娱乐直播</span></div>
+      </a>
+      <a class="site-card" href="https://live.douyin.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FE2C55;"></div>
+        <div class="site-info"><span class="site-name">抖音直播</span><span class="site-desc">抖音直播 热门不断</span></div>
+      </a>
+      <a class="site-card" href="https://live.kuaishou.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF4900;"></div>
+        <div class="site-info"><span class="site-name">快手直播</span><span class="site-desc">快手直播 真实记录</span></div>
+      </a>
+      <a class="site-card" href="https://live.bilibili.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FB7299;"></div>
+        <div class="site-info"><span class="site-name">B站直播</span><span class="site-desc">哔哩哔哩直播</span></div>
+      </a>
+      <a class="site-card" href="https://www.netflix.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #E50914;"></div>
+        <div class="site-info"><span class="site-name">Netflix</span><span class="site-desc">全球流媒体巨头</span></div>
+      </a>
+      <a class="site-card" href="https://www.disneyplus.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #113CCF;"></div>
+        <div class="site-info"><span class="site-name">Disney+</span><span class="site-desc">迪士尼流媒体</span></div>
+      </a>
+      <a class="site-card" href="https://www.hbomax.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #B024AB;"></div>
+        <div class="site-info"><span class="site-name">HBO Max</span><span class="site-desc">华纳兄弟流媒体</span></div>
+      </a>
+      <a class="site-card" href="https://www.primevideo.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #00A8E1;"></div>
+        <div class="site-info"><span class="site-name">Amazon Prime Video</span><span class="site-desc">亚马逊会员视频</span></div>
+      </a>
+      <a class="site-card" href="https://tv.apple.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1D1D1F;"></div>
+        <div class="site-info"><span class="site-name">Apple TV+</span><span class="site-desc">苹果原创内容</span></div>
+      </a>
+      <a class="site-card" href="https://www.hulu.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1CE783;"></div>
+        <div class="site-info"><span class="site-name">Hulu</span><span class="site-desc">美国流媒体平台</span></div>
+      </a>
+      <a class="site-card" href="https://vimeo.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #1AB7EA;"></div>
+        <div class="site-info"><span class="site-name">Vimeo</span><span class="site-desc">专业视频分享社区</span></div>
+      </a>
+      <a class="site-card" href="https://www.dailymotion.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #00D6F9;"></div>
+        <div class="site-info"><span class="site-name">Dailymotion</span><span class="site-desc">国际视频分享平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.twitch.tv" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #9146FF;"></div>
+        <div class="site-info"><span class="site-name">Twitch</span><span class="site-desc">全球游戏直播平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.nicovideo.jp" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #27282D;"></div>
+        <div class="site-info"><span class="site-name">Niconico</span><span class="site-desc">日本弹幕视频网站</span></div>
+      </a>
+      <a class="site-card" href="https://open.douyin.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #25F4EE;"></div>
+        <div class="site-info"><span class="site-name">抖音开放平台</span><span class="site-desc">抖音开发者平台</span></div>
+      </a>
+      <a class="site-card" href="https://creator.ixigua.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF9000;"></div>
+        <div class="site-info"><span class="site-name">西瓜创作平台</span><span class="site-desc">西瓜视频创作者中心</span></div>
+      </a>
+      <a class="site-card" href="https://member.bilibili.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FB7299;"></div>
+        <div class="site-info"><span class="site-name">B站创作中心</span><span class="site-desc">B站UP主后台</span></div>
+      </a>
+      <a class="site-card" href="https://studio.youtube.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF0000;"></div>
+        <div class="site-info"><span class="site-name">YouTube Studio</span><span class="site-desc">YouTube 创作者工作室</span></div>
+      </a>
+      <a class="site-card" href="https://cp.kuaishou.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF4900;"></div>
+        <div class="site-info"><span class="site-name">快手创作者中心</span><span class="site-desc">快手创作者平台</span></div>
+      </a>
+      <a class="site-card" href="https://weibo.com/tv" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #FF8200;"></div>
+        <div class="site-info"><span class="site-name">微博视频</span><span class="site-desc">微博视频 随时随地</span></div>
+      </a>
+      <a class="site-card" href="https://channels.weixin.qq.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #07C160;"></div>
+        <div class="site-info"><span class="site-name">微信视频号</span><span class="site-desc">微信短视频平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.zhihu.com/video" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #0084FF;"></div>
+        <div class="site-info"><span class="site-name">知乎视频</span><span class="site-desc">知乎 视频频道</span></div>
+      </a>
+      <a class="site-card" href="https://time.douban.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #007722;"></div>
+        <div class="site-info"><span class="site-name">豆瓣时间</span><span class="site-desc">豆瓣知识付费</span></div>
+      </a>
+      <a class="site-card" href="https://www.dedao.cn" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #002C3E;"></div>
+        <div class="site-info"><span class="site-name">得到App</span><span class="site-desc">知识就在得到</span></div>
+      </a>
+      <a class="site-card" href="https://www.qingting.fm" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #29B6F3;"></div>
+        <div class="site-info"><span class="site-name">蜻蜓FM</span><span class="site-desc">有声内容聚合平台</span></div>
+      </a>
+      <a class="site-card" href="https://www.ximalaya.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #ED5858;"></div>
+        <div class="site-info"><span class="site-name">喜马拉雅</span><span class="site-desc">中国领先音频平台</span></div>
+      </a>
+      <a class="site-card" href="https://music.163.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #C20C0C;"></div>
+        <div class="site-info"><span class="site-name">网易云音乐</span><span class="site-desc">发现好音乐</span></div>
+      </a>
+      <a class="site-card" href="https://y.qq.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #31C27C;"></div>
+        <div class="site-info"><span class="site-name">QQ音乐</span><span class="site-desc">海量正版音乐在线听</span></div>
+      </a>
+      <a class="site-card" href="https://www.kugou.com" target="_blank" rel="noopener">
+        <div class="brand-color" style="background: #0DC070;"></div>
+        <div class="site-info"><span class="site-name">酷狗音乐</span><span class="site-desc">就是歌多</span></div>
+      </a>
+
+  </div>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="index.html">返回首页</a>
+    <a href="video.html">刷新列表</a>
+  </div>
+  <div class="footer-copy">2026 luobox · 收录互联网精彩站点</div>
+</footer>
+
+<script>
+// ===== Search Engine Config =====
+const SEARCH_ENGINES = {
+  baidu: { name: '百度', url: 'https://www.baidu.com/s?wd=', icon: '🔍' },
+  google: { name: 'Google', url: 'https://www.google.com/search?q=', icon: '🌐' },
+  bing: { name: 'Bing', url: 'https://www.bing.com/search?q=', icon: '🔎' }
+};
+let currentEngine = 'baidu';
+
+function doHeaderSearch() {
+  const q = document.getElementById('headerSearchInput').value.trim();
+  if (!q) return;
+  window.open(SEARCH_ENGINES[currentEngine].url + encodeURIComponent(q), '_blank');
+}
+
+document.getElementById('headerSearchInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doHeaderSearch();
+});
+
+// ===== In-page Filter Search =====
+const filterInput = document.getElementById('filterInput');
+const cardGrid = document.getElementById('cardGrid');
+const allCards = Array.from(cardGrid.querySelectorAll('.site-card'));
+const countBadge = document.getElementById('visibleCount');
+
+filterInput.addEventListener('input', () => {
+  const keyword = filterInput.value.trim().toLowerCase();
+  let visible = 0;
+
+  allCards.forEach(card => {
+    const name = card.querySelector('.site-name')?.textContent.toLowerCase() || '';
+    const desc = card.querySelector('.site-desc')?.textContent.toLowerCase() || '';
+
+    if (!keyword || name.includes(keyword) || desc.includes(keyword)) {
+      card.style.display = '';
+      visible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  countBadge.textContent = visible;
+
+  // Show no results message
+  let noResults = document.querySelector('.no-results');
+  if (visible === 0 && !noResults) {
+    const div = document.createElement('div');
+    div.className = 'no-results';
+    div.textContent = '没有找到匹配的网站，换个关键词试试';
+    cardGrid.appendChild(div);
+  } else if (visible > 0 && noResults) {
+    noResults.remove();
+  }
+});
+</script>
+
+</body>
+</html>
