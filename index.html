@@ -6,7 +6,7 @@
 <title>luobox - 精选网站导航 | 视频知识文学资讯电商游戏设计工具一站式导航</title>
 
 <!-- ========== SEO Meta Tags ========== -->
-<meta name="description" content="luobox 是面向年轻人的精选网站导航站，收录视频、知识、文学、资讯、电商、游戏、设计、工具等 8 大类优质互联网站点，一键直达你喜爱的目的地。">
+<meta name="description" content="luobox 是面向年轻人的精选网站导航站，收录视频、知识、文学、资讯、电商、游戏、工具与设计等 7 大类优质互联网站点，一键直达你喜爱的目的地。">
 <meta name="keywords" content="luobox,网站导航,导航站,网址大全,常用网址,互联网导航,视频网站,知识平台,小说阅读,新闻资讯,购物网站,游戏平台,设计工具,效率工具">
 <meta name="author" content="luobox">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -43,7 +43,7 @@
   "@type": "WebSite",
   "name": "luobox",
   "url": "https://luabox.example.com",
-  "description": "面向年轻人的精选网站导航站，收录视频、知识、文学、资讯、电商、游戏、设计、工具等 8 大类优质互联网站点。",
+  "description": "面向年轻人的精选网站导航站，收录视频、知识、文学、资讯、电商、游戏、工具与设计等 7 大类优质互联网站点。",
   "inLanguage": "zh-CN",
   "potentialAction": {
     "@type": "SearchAction",
@@ -474,6 +474,32 @@ body {
   text-overflow: ellipsis;
 }
 
+/* ========== More Card (第6位 - 更多入口) ========== */
+.more-card {
+  background: linear-gradient(135deg, #F8FAFC 0%, #EEF2FF 100%);
+  border: 1.5px dashed rgba(37, 99, 235, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.more-card:hover {
+  border-color: var(--primary) !important;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.1) !important;
+  background: linear-gradient(135deg, #EFF6FF 0%, #E0E7FF 100%) !important;
+}
+
+.more-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 /* ========== Footer ========== */
 .footer {
   width: 100%;
@@ -602,7 +628,7 @@ body {
       <span class="stat-label">收录网站</span>
     </div>
     <div class="stat-item">
-      <span class="stat-value">8</span>
+      <span class="stat-value">7</span>
       <span class="stat-label">热门分类</span>
     </div>
     <div class="stat-item">
@@ -628,29 +654,31 @@ body {
       <span class="cat-tags">抖音 · 哔哩 · 更多</span>
     </div>
     <div class="card-grid">
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.douyin.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #FE2C55;"></div>
-        <div class="site-info"><span class="site-name">抖音</span><span class="site-name site-desc">记录美好生活</span></div>
+        <div class="site-info"><span class="site-name">抖音</span><span class="site-desc">记录美好生活</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.bilibili.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #00A1D6;"></div>
         <div class="site-info"><span class="site-name">哔哩哔哩</span><span class="site-desc">国内知名视频弹幕网站</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #FF0000;"></div>
         <div class="site-info"><span class="site-name">YouTube</span><span class="site-desc">全球最大视频平台</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.kuaishou.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #FF6B00;"></div>
         <div class="site-info"><span class="site-name">快手</span><span class="site-desc">拥抱每一种生活</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.youku.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #00A1D6;"></div>
         <div class="site-info"><span class="site-name">优酷</span><span class="site-desc">这世界很酷</span></div>
       </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #FF9000;"></div>
-        <div class="site-info"><span class="site-name">西瓜视频</span><span class="site-desc">给你新鲜好看</span></div>
+      <a class="site-card more-card" href="/video.html" title="查看更多视频网站">
+        <div class="more-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="site-info"><span class="site-name">更多视频网站 →</span><span class="site-desc">西瓜视频、芒果TV、爱奇艺等</span></div>
       </a>
     </div>
   </section>
@@ -668,29 +696,31 @@ body {
       <span class="cat-tags">知网 · 维基 · 更多</span>
     </div>
     <div class="card-grid">
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.cnki.net" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #1A5490;"></div>
         <div class="site-info"><span class="site-name">知网</span><span class="site-desc">中国学术文献网络总库</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://zh.wikipedia.org" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #666666;"></div>
         <div class="site-info"><span class="site-name">维基百科</span><span class="site-desc">自由的百科全书</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://baike.baidu.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #2962FF;"></div>
         <div class="site-info"><span class="site-name">百度百科</span><span class="site-desc">中文互联网知识平台</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.dongkedao.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #FF6B00;"></div>
         <div class="site-info"><span class="site-name">懂客</span><span class="site-desc">多领域知识短视频</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.wanfangdata.com.cn" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #00A1D6;"></div>
         <div class="site-info"><span class="site-name">万方</span><span class="site-desc">中外学术数据平台</span></div>
       </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #00C853;"></div>
-        <div class="site-info"><span class="site-name">ResearchGate</span><span class="site-desc">全球学者社交网络</span></div>
+      <a class="site-card more-card" href="/knowledge.html" title="查看更多知识网站">
+        <div class="more-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="site-info"><span class="site-name">更多知识网站 →</span><span class="site-desc">ResearchGate、知乎、果壳等</span></div>
       </a>
     </div>
   </section>
@@ -708,29 +738,31 @@ body {
       <span class="cat-tags">小说 · 阅读 · 创作</span>
     </div>
     <div class="card-grid">
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.qidian.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #BF360C;"></div>
         <div class="site-info"><span class="site-name">起点中文网</span><span class="site-desc">阅文集团旗下原创平台</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.jjwxc.net" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #E53935;"></div>
         <div class="site-info"><span class="site-name">晋江文学城</span><span class="site-desc">女性向小说阅读平台</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.xxsy.net" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #E91E63;"></div>
         <div class="site-info"><span class="site-name">潇湘书院</span><span class="site-desc">女生原创电子阅读</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://book.douban.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #43A047;"></div>
         <div class="site-info"><span class="site-name">豆瓣读书</span><span class="site-desc">读书人的精神角落</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.zongheng.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #F9A825;"></div>
-        <div class="site-info"><span class="site-name">纵横中文小说网</span><span class="site-desc">畅享创作乐趣</span></div>
+        <div class="site-info"><span class="site-name">纵横中文网</span><span class="site-desc">畅享创作乐趣</span></div>
       </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #7B1FA2;"></div>
-        <div class="site-info"><span class="site-name">七猫小说</span><span class="site-desc">免费看小说追书神器</span></div>
+      <a class="site-card more-card" href="/literature.html" title="查看更多文学网站">
+        <div class="more-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="site-info"><span class="site-name">更多文学网站 →</span><span class="site-desc">七猫小说、番茄小说、红袖等</span></div>
       </a>
     </div>
   </section>
@@ -748,29 +780,31 @@ body {
       <span class="cat-tags">新闻 · 热点 · 科技</span>
     </div>
     <div class="card-grid">
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.toutiao.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #D32F2F;"></div>
         <div class="site-info"><span class="site-name">今日头条</span><span class="site-desc">信息创造价值</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://36kr.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #2196F3;"></div>
         <div class="site-info"><span class="site-name">36氪</span><span class="site-desc">科技创业媒体平台</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.sina.com.cn" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #E53935;"></div>
         <div class="site-info"><span class="site-name">新浪</span><span class="site-desc">门户网站综合服务</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.163.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #C62828;"></div>
         <div class="site-info"><span class="site-name">网易</span><span class="site-desc">各有态度的门户</span></div>
       </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #E53935;"></div>
-        <div class="site-info"><span class="site-name">搜狐</span><span class="site-desc">门户新闻客户端</span></div>
-      </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://news.qq.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #1E88E5;"></div>
         <div class="site-info"><span class="site-name">腾讯新闻</span><span class="site-desc">即时全球资讯尽览</span></div>
+      </a>
+      <a class="site-card more-card" href="/news.html" title="查看更多资讯网站">
+        <div class="more-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="site-info"><span class="site-name">更多资讯网站 →</span><span class="site-desc">搜狐、澎湃、界面等</span></div>
       </a>
     </div>
   </section>
@@ -790,29 +824,31 @@ body {
       <span class="cat-tags">购物 · 淘宝 · 京东</span>
     </div>
     <div class="card-grid">
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.taobao.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #FF5000;"></div>
         <div class="site-info"><span class="site-name">淘宝</span><span class="site-desc">万能购物平台</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.jd.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #E4393C;"></div>
         <div class="site-info"><span class="site-name">京东</span><span class="site-desc">多快好省购物体验</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.pinduoduo.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #FF6A00;"></div>
         <div class="site-info"><span class="site-name">拼多多</span><span class="site-desc">拼着买更便宜</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.xiaohongshu.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #F27524;"></div>
         <div class="site-info"><span class="site-name">小红书</span><span class="site-desc">标记我的生活</span></div>
       </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #E02E24;"></div>
-        <div class="site-info"><span class="site-name">唯品会</span><span class="site-desc">品牌特卖平台</span></div>
-      </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.tmall.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #FF2741;"></div>
         <div class="site-info"><span class="site-name">天猫</span><span class="site-desc">品牌旗舰正品</span></div>
+      </a>
+      <a class="site-card more-card" href="/shop.html" title="查看更多电商网站">
+        <div class="more-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="site-info"><span class="site-name">更多电商网站 →</span><span class="site-desc">唯品会、当当、亚马逊等</span></div>
       </a>
     </div>
   </section>
@@ -832,74 +868,36 @@ body {
       <span class="cat-tags">Steam · 游戏 · 主机</span>
     </div>
     <div class="card-grid">
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://store.steampowered.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #1B2838;"></div>
         <div class="site-info"><span class="site-name">Steam</span><span class="site-desc">全球最大游戏发行平台</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.taptap.cn" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #F4B942;"></div>
         <div class="site-info"><span class="site-name">TapTap</span><span class="site-desc">手游玩家首选社区</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.4399.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #FA9D3B;"></div>
         <div class="site-info"><span class="site-name">4399</span><span class="site-desc">在线小游戏平台</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.gamersky.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #FFB74D;"></div>
         <div class="site-info"><span class="site-name">游民星空</span><span class="site-desc">游戏资讯与攻略</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.epicgames.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #212121;"></div>
         <div class="site-info"><span class="site-name">Epic Games</span><span class="site-desc">免费游戏大作领取</span></div>
       </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #C62828;"></div>
-        <div class="site-info"><span class="site-name">暴雪战网</span><span class="site-desc">精品游戏聚合地</span></div>
+      <a class="site-card more-card" href="/game.html" title="查看更多游戏网站">
+        <div class="more-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="site-info"><span class="site-name">更多游戏网站 →</span><span class="site-desc">暴雪战网、WeGame、小黑盒等</span></div>
       </a>
     </div>
   </section>
 
-  <!-- ===== 图片设计网站 ===== -->
-  <section class="category-section">
-    <div class="cat-header">
-      <div class="cat-icon-wrapper" style="background: var(--cat-design);">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17 3L21 7L7 21H3V17L17 3Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M14 6L18 10" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <h2 class="cat-title">图片设计</h2>
-      <span class="cat-tags">Canva · 设计 · 创意</span>
-    </div>
-    <div class="card-grid">
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #00C4CC;"></div>
-        <div class="site-info"><span class="site-name">Canva</span><span class="site-desc">在线设计做图工具</span></div>
-      </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #A259FF;"></div>
-        <div class="site-info"><span class="site-name">Figma</span><span class="site-desc">协作式UI设计工具</span></div>
-      </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #FDB300;"></div>
-        <div class="site-info"><span class="site-name">站酷</span><span class="site-desc">设计师互动平台</span></div>
-      </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #FF5722;"></div>
-        <div class="site-info"><span class="site-name">花瓣网</span><span class="site-desc">设计师灵感采集</span></div>
-      </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #FF9800;"></div>
-        <div class="site-info"><span class="site-name">千图网</span><span class="site-desc">免费设计素材下载</span></div>
-      </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #FF7043;"></div>
-        <div class="site-info"><span class="site-name">包图网</span><span class="site-desc">海量设计素材库</span></div>
-      </a>
-    </div>
-  </section>
-
-  <!-- ===== 工具网站 ===== -->
+  <!-- ===== 工具与设计（含图片设计） ===== -->
   <section class="category-section">
     <div class="cat-header">
       <div class="cat-icon-wrapper" style="background: var(--cat-tool);">
@@ -908,33 +906,35 @@ body {
           <path d="M13 10L6 17C5 18 5.5 19 6.5 19.5C7.5 20 8.5 19.5 9 18.5L16 11.5L13 10Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
         </svg>
       </div>
-      <h2 class="cat-title">工具网站</h2>
-      <span class="cat-tags">效率 · 开发 · 实用</span>
+      <h2 class="cat-title">工具与设计</h2>
+      <span class="cat-tags">效率 · 开发 · 设计 · 实用</span>
     </div>
     <div class="card-grid">
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://github.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #181717;"></div>
         <div class="site-info"><span class="site-name">GitHub</span><span class="site-desc">全球代码托管平台</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.figma.com" target="_blank" rel="noopener noreferrer">
+        <div class="brand-color" style="background: #A259FF;"></div>
+        <div class="site-info"><span class="site-name">Figma</span><span class="site-desc">协作式UI设计工具</span></div>
+      </a>
+      <a class="site-card" href="https://www.notion.so" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #222222;"></div>
         <div class="site-info"><span class="site-name">Notion</span><span class="site-desc">全能笔记协作工具</span></div>
       </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #F26522;"></div>
-        <div class="site-info"><span class="site-name">CSDN</span><span class="site-desc">开发者技术社区</span></div>
+      <a class="site-card" href="https://www.canva.cn" target="_blank" rel="noopener noreferrer">
+        <div class="brand-color" style="background: #00C4CC;"></div>
+        <div class="site-info"><span class="site-name">Canva</span><span class="site-desc">在线设计做图工具</span></div>
       </a>
-      <a class="site-card" href="#">
+      <a class="site-card" href="https://www.processon.com" target="_blank" rel="noopener noreferrer">
         <div class="brand-color" style="background: #4CAF50;"></div>
         <div class="site-info"><span class="site-name">ProcessOn</span><span class="site-desc">免费在线流程图工具</span></div>
       </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #E91E63;"></div>
-        <div class="site-info"><span class="site-name">墨刀</span><span class="site-desc">原型设计与协作</span></div>
-      </a>
-      <a class="site-card" href="#">
-        <div class="brand-color" style="background: #0284C7;"></div>
-        <div class="site-info"><span class="site-name">Stack Overflow</span><span class="site-desc">程序员问答社区</span></div>
+      <a class="site-card more-card" href="/tool.html" title="查看更多工具与设计网站">
+        <div class="more-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="#06B6D4" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="site-info"><span class="site-name">更多工具与设计 →</span><span class="site-desc">CSDN、站酷、墨刀、Stack Overflow等</span></div>
       </a>
     </div>
   </section>
@@ -951,7 +951,7 @@ body {
           <path d="M2 16C4 14 6 13 9 13C12 13 12 16 15 16C18 16 20 14 22 12" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </div>
-      <span class="footer-logo-text">冲浪导航</span>
+      <span class="footer-logo-text">luobox</span>
     </div>
     <div class="footer-links">
       <a class="footer-link">关于我们</a>
