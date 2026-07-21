@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>luobox - 测试页面</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #FFFFFF;
+  color: #0F172A;
+}
+
+/* Desktop Version */
+.desktop-only { display: block; }
+.mobile-only { display: none !important; }
+
+.desktop-header {
+  background: #2563EB;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+.desktop-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Mobile Version - Show when < 768px */
+@media (max-width: 767px) {
+  .desktop-only { display: none !important; }
+  .mobile-only { display: block !important; }
+  
+  body {
+    background: #F8FAFC;
+  }
+  
+  .mobile-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mobile-status-bar {
+    width: 100%;
+    height: 44px;
+    background: #2563EB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .mobile-header {
+    width: 100%;
+    height: 56px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid #E2E8F0;
+  }
+  
+  .mobile-logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2563EB;
+  }
+  
+  .mobile-hero {
+    width: 100%;
+    min-height: 200px;
+    background: linear-gradient(135deg, #3B82F6 0%, #2563EB 50%, #1E40AF 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 20px;
+  }
+  
+  .mobile-hero-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+  }
+  
+  .mobile-hero-subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+  }
+  
+  .mobile-search-box {
+    width: 100%;
+    max-width: 320px;
+    height: 44px;
+    background: white;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 8px;
+  }
+  
+  .mobile-search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  .mobile-content {
+    flex: 1;
+    padding: 20px 16px;
+  }
+  
+  .mobile-cat-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #1A1A2E;
+  }
+  
+  .mobile-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .mobile-site-card {
+    background: white;
+    border-radius: 16px;
+    padding: 12px;
+    border: 1px solid #F3F4F6;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .mobile-card-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .mobile-card-desc {
+    font-size: 12px;
+    color: #6B7280;
+  }
+  
+  .mobile-more-card {
+    background: #F0F4FF;
+    border-radius: 16px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #D0DBFE;
+    text-decoration: none;
+    color: #6B8AFF;
+  }
+  
+  .mobile-more-plus {
+    font-size: 28px;
+    font-weight: 300;
+  }
+  
+  .mobile-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+  }
+  
+  .mobile-pill {
+    display: flex;
+    gap: 4px;
+    background: #F8FAFC;
+    padding: 4px;
+    border-radius: 36px;
+    border: 1px solid #E2E8F0;
+  }
+  
+  .mobile-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 54px;
+    border-radius: 26px;
+    text-decoration: none;
+    color: #6B7280;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  
+  .mobile-tab.active {
+    background: #2563EB;
+    color: white;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- DESKTOP VERSION -->
+<div class="desktop-only">
+  <div class="desktop-header">
+    <h1>luobox - 桌面版</h1>
+    <p>这是桌面版本（屏幕宽度 ≥ 768px）</p>
+  </div>
+  <div class="desktop-content">
+    <p>如果您看到这个页面，说明您正在使用桌面浏览器或宽屏设备。</p>
+    <p>请将浏览器窗口缩小到 768px 以下，或使用手机访问以查看移动端界面。</p>
+  </div>
+</div>
+
+<!-- MOBILE VERSION -->
+<div class="mobile-only mobile-container">
+  <!-- Status Bar -->
+  <div class="mobile-status-bar">
+    <span id="mobileTime">17:00</span>
+    <div>📶 📡 🔋</div>
+  </div>
+
+  <!-- Header -->
+  <div class="mobile-header">
+    <span class="mobile-logo">luobox</span>
+    <button style="background:none;border:none;font-size:24px;">🔍</button>
+  </div>
+
+  <!-- Hero Banner -->
+  <div class="mobile-hero">
+    <h1 class="mobile-hero-title">发现精彩网站</h1>
+    <p class="mobile-hero-subtitle">10 大分类 · 500+ 精选网站</p>
+    <div class="mobile-search-box">
+      <span>🔍</span>
+      <input type="text" placeholder="搜索网站...">
+    </div>
+  </div>
+
+  <!-- Content Area -->
+  <div class="mobile-content">
+    
+    <!-- Video Category -->
+    <section>
+      <h2 class="mobile-cat-title">📺 视频网站</h2>
+      <div class="mobile-card-grid">
+        <a href="#" class="mobile-site-card">
+          <div class="mobile-card-name">哔哩哔哩</div>
+          <div class="mobile-card-desc">国内最大弹幕视频平台</div>
+        </a>
+        <a href="#" class="mobile-site-card">
+          <div class="mobile-card-name">YouTube</div>
+          <div class="mobile-card-desc">全球最大视频分享平台</div>
+        </a>
+        <a href="#" class="mobile-site-card">
+          <div class="mobile-card-name">爱奇艺</div>
+          <div class="mobile-card-desc">海量正版高清视频</div>
+        </a>
+        <a href="#" class="mobile-site-card">
+          <div class="mobile-card-name">腾讯视频</div>
+          <div class="mobile-card-desc">热门综艺电视剧首播</div>
+        </a>
+        <a href="#" class="more-card mobile-more-card">
+          <span class="mobile-more-plus">+</span>
+          <span>更多</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Knowledge Category -->
+    <section>
+      <h2 class="mobile-cat-title">📚 知识网站</h2>
+      <div class="mobile-card-grid">
+        <a href="#" class="mobile-site-card">
+          <div class="mobile-card-name">知乎</div>
+          <div class="mobile-card-desc">专业问答知识社区</div>
+        </a>
+        <a href="#" class="mobile-site-card">
+          <div class="mobile-card-name">百度</div>
+          <div class="mobile-card-desc">全球最大中文搜索引擎</div>
+        </a>
+        <a href="#" class="more-card mobile-more-card">
+          <span class="mobile-more-plus">+</span>
+          <span>更多</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Bottom Tab Bar -->
+  <nav class="mobile-bottom-bar">
+    <div class="mobile-pill">
+      <a href="#" class="mobile-tab active">
+        <span>🏠</span>
+        <span>首页</span>
+      </a>
+      <a href="#" class="mobile-tab">
+        <span>🧭</span>
+        <span>发现</span>
+      </a>
+      <a href="#" class="mobile-tab">
+        <span>👤</span>
+        <span>我的</span>
+      </a>
+    </div>
+  </nav>
+
+</div>
+
+<script>
+// Update time
+function updateTime() {
+  const now = new Date();
+  const time = now.toTimeString().slice(0,5);
+  document.getElementById('mobileTime').textContent = time;
+}
+updateTime();
+setInterval(updateTime, 60000);
+
+// Debug info
+console.log('Page loaded successfully');
+console.log('Window width:', window.innerWidth);
+console.log('Is mobile:', window.innerWidth < 768);
+</script>
+
+</body>
+</html>
